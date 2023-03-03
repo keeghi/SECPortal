@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>SecPortal.Entities</AssemblyName>
+    <RootNamespace>SecPortal.Entities</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20211224085011_Hikarusa-Entities-Added.cs" />
+    <Compile Remove="Migrations\20211224085011_Hikarusa-Entities-Added.Designer.cs" />
+    <Compile Remove="Migrations\20220223111043_Customer-Properties-Added.cs" />
+    <Compile Remove="Migrations\20220223111043_Customer-Properties-Added.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\Details\" />
+    <Folder Include="Entities\Masters\" />
+    <Folder Include="Entities\Systems\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SecPortal.Commons\SecPortal.Commons.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,109 @@
+.available-city {
+  padding: 3rem 1rem;
+
+  &__actions {
+    .btn {
+      min-width: 25%;
+    }
+
+    @media (max-width: 992px) {
+      .btn {
+        min-width: 80%;
+      }
+
+      .btn {
+        margin: auto !important;
+      }
+    }
+
+    .btn:not(:last-child) {
+      @media (max-width: 992px) {
+        margin-bottom: 2rem !important;
+      }
+
+      margin-right: 30px;
+    }
+  }
+
+  &__form {
+    display: inline-block;
+    min-width: 75%;
+    margin: 2rem 0 5rem 0;
+    text-align: left !important;
+    label {
+      margin-left: 2rem;
+      margin-bottom: 0.5rem;
+      text-align: left;
+    }
+    select {
+      border-radius: 2rem;
+      padding-left: 7.5%;
+    }
+  }
+}
+
+.reseller-list {
+  padding: 0rem 1rem 10rem;
+}
+
+.resellers {
+  padding: 5rem 0;
+  &--1 {
+    background-color: $tertiary;
+  }
+  &--2 {
+    background-color: $white;
+  }
+  .row:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+  .btn-resellers-title {
+    margin-bottom: 50px;
+    @media (min-width: 700px) {
+      button {
+        width: 30vw;
+      }
+    }
+  }
+  &-item {
+    &__img {
+      display: flex;
+      height: 250px;
+    }
+
+    img {
+      max-height: 250px;
+    }
+
+    padding: 0 1rem;
+    &__info {
+      &-title {
+        margin-top: 1.4rem;
+        margin-bottom: 1.4rem;
+      }
+      &-node {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        svg {
+          margin-top: 3.2px;
+          margin-right: 1.4rem;
+          color: $primary;
+          font-size: 1.5rem;
+        }
+        p {
+          margin-bottom: 0;
+        }
+        &:not(:last-child),
+        &:not(:first-child) {
+          margin-top: 0.6rem;
+        }
+      }
+      &-image {
+        width: 80%;
+        margin: auto;
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,253 @@
+section#footer {
+  background-color: $bg-footer;
+}
+
+ul.social-media-list {
+  .list-inline-item:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  a {
+    &:hover {
+      color: $secondary-dark;
+    }
+  }
+}
+
+img.img-we-accept {
+  height: auto;
+  width: 75%;
+}
+
+.offcanvas-backdrop {
+  background: #fffcf9;
+}
+
+#header-mobile {
+  .offcanvas-body {
+    ul.navbar-nav {
+      li.nav-item {
+        margin-bottom: 2em;
+        > p {
+          margin-bottom: 0px;
+        }
+
+        .card-body .navbar-nav li a {
+          padding-bottom: 0.5em;
+          padding-top: 0.5em;
+        }
+      }
+    }
+  }
+}
+
+#offcanvasCart {
+  background: #f7f0eb;
+  border-left: none;
+
+  .offcanvas-header {
+    height: 80px;
+    border-bottom: solid 1px #dfd3cb;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    #offcanvasCartLabel {
+      font-family: 'Nunito', sans-serif;
+      font-size: 25px;
+      font-weight: 700;
+      color: #554941 !important;
+    }
+
+    button {
+      font-size: 16px;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  .offcanvas-body {
+    padding: 0;
+
+    .product-item-on-cart-wrapper {
+      padding: 15px 30px 0px 30px;
+      max-height: calc(100vh - 250px);
+      overflow: hidden;
+      overflow-y: scroll;
+    }
+
+    .checkout-action-wrapper {
+      border-top: solid 1px #dfd3cb;
+      padding: 22.22222px 30px 30px 30px;
+
+      .sub-total-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        line-height: 1;
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 20px;
+
+        .sub-total-title {
+          text-transform: uppercase;
+          letter-spacing: 0.3em;
+        }
+
+        .sub-total-value {
+          font-size: 14px;
+          font-weight: 600;
+        }
+      }
+
+      .checkout-note-notif {
+        margin-bottom: 20px;
+        font-size: 12px;
+        width: 100%;
+        text-align: center;
+
+        span {
+          white-space: pre-wrap;
+        }
+      }
+    }
+
+    .cart-items {
+      .cart-item {
+        padding-top: 10px;
+        padding-bottom: 20px;
+        display: flex;
+        position: relative;
+
+        &__remove {
+          position: absolute;
+          right: 0;
+          top: 13px;
+          color: red;
+          cursor: pointer;
+        }
+
+        .cart-image {
+          flex: 0 0 100px;
+
+          a {
+            margin-right: 15px;
+            padding: 0;
+
+            img {
+              width: 85px;
+              height: 85px;
+              object-fit: cover;
+              background: #fffcf9;
+              border-radius: 3px;
+            }
+          }
+        }
+
+        .cart-item-details {
+          flex: 1 1 auto;
+          display: flex;
+          flex-wrap: wrap;
+
+          .cart-item-title {
+            flex: 1 1 100%;
+
+            a {
+              font-family: 'Nunito', sans-serif;
+              text-decoration: none;
+              padding: 0 0 8px 0;
+              font-size: 17px;
+              white-space: pre-wrap;
+              font-weight: 500;
+              line-height: 1.2;
+            }
+          }
+
+          .cart-item-variants {
+            margin-bottom: 10px;
+            width: 100%;
+            display: flex;
+            flex-flow: wrap;
+            font-size: 11px;
+            line-height: 1.5;
+
+            & > div {
+              margin-right: 10px;
+
+              span {
+                font-weight: 500;
+              }
+            }
+          }
+
+          .cart-item-sub {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+        }
+      }
+    }
+  }
+}
+
+.cart-item {
+  .vue-number-input {
+    width: 90px;
+    max-width: 100%;
+  }
+
+  .vue-number-input__button {
+    width: 20px;
+    height: 22px;
+    background-color: #ffffff;
+
+    input {
+      border-color: #dfd3cb;
+    }
+
+    &::after {
+      background-color: $primary;
+    }
+
+    &::before {
+      background-color: $primary;
+    }
+
+    &.vue-number-input__button--minus {
+      border: none;
+
+      &::before {
+        width: 10px;
+        height: 2px;
+        border-radius: 30px;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    &.vue-number-input__button--plus {
+      border: none;
+
+      &::after {
+        height: 10px;
+        width: 2px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 30px;
+      }
+      &::before {
+        width: 10px;
+        height: 2px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 30px;
+      }
+    }
+  }
+
+  .vue-number-input__input {
+    padding: 0 33px !important;
+    font-size: 12px;
+    text-align: center;
+  }
+}

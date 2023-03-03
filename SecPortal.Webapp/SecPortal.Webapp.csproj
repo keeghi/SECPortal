@@ -1,0 +1,438 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>client-app\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+    <UserSecretsId>6ca9afe1-f54b-4991-a5d6-4a31c71e406f</UserSecretsId>
+    <AssemblyName>SecPortal.Webapp</AssemblyName>
+    <RootNamespace>SecPortal.Webapp</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.7.28" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.28" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.7.28" />
+    <PackageReference Include="Mailjet.Api" Version="1.2.3" />
+    <PackageReference Include="MediatR" Version="8.1.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.22" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0-preview6.19307.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.2" />
+    <PackageReference Include="Xendit.net" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="client-app\**" />
+    <Compile Remove="CQRS\Queries\BusinessPartner\**" />
+    <Content Remove="$(SpaRoot)**" />
+    <Content Remove="client-app\**" />
+    <Content Remove="CQRS\Queries\BusinessPartner\**" />
+    <EmbeddedResource Remove="client-app\**" />
+    <EmbeddedResource Remove="CQRS\Queries\BusinessPartner\**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Remove="client-app\**" />
+    <None Remove="CQRS\Queries\BusinessPartner\**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="client-app\.browserslistrc" />
+    <None Remove="client-app\.editorconfig" />
+    <None Remove="client-app\.eslintrc.js" />
+    <None Remove="client-app\.gitignore" />
+    <None Remove="client-app\.prettierrc" />
+    <None Remove="client-app\babel.config.js" />
+    <None Remove="client-app\dist\favicon.ico" />
+    <None Remove="client-app\dist\img\800x800.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\bg-login-page-dark.3474f6eb.svg" />
+    <None Remove="client-app\dist\img\bg-login-page.9f934e18.svg" />
+    <None Remove="client-app\dist\img\error-illustration.2562917e.svg" />
+    <None Remove="client-app\dist\img\header-background.69f9a7d3.png" />
+    <None Remove="client-app\dist\img\hikarusa-image-grid-1.dbdcebf9.jpeg" />
+    <None Remove="client-app\dist\img\hikarusa-image-grid-2.68d562ee.jpeg" />
+    <None Remove="client-app\dist\img\hikarusa-image-grid-3.010314a9.jpeg" />
+    <None Remove="client-app\dist\img\hikarusa-image-grid-4.24d79e05.jpeg" />
+    <None Remove="client-app\dist\img\hikarusa-image-grid-5.0b85bbc1.jpeg" />
+    <None Remove="client-app\dist\img\illustration.31a82b05.svg" />
+    <None Remove="client-app\dist\img\logo.315572aa.svg" />
+    <None Remove="client-app\dist\img\out-of-stock.e93b9efc.png" />
+    <None Remove="client-app\dist\img\phone-illustration.58a8375e.svg" />
+    <None Remove="client-app\dist\img\pillow-product-image-2.d76a9003.jpeg" />
+    <None Remove="client-app\dist\img\pillow-product-image-3.d2c3f780.jpeg" />
+    <None Remove="client-app\dist\img\pillow-product-image.27fb173f.jpg" />
+    <None Remove="client-app\dist\img\pillow-product.d487a996.png" />
+    <None Remove="client-app\dist\img\preview-1.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-10.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-11.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-12.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-13.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-14.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-15.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-16.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-17.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-18.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-19.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-2.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-3.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-4.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-5.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-6.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-7.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-8.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\preview-9.b0b35269.jpg" />
+    <None Remove="client-app\dist\img\We-Accept.0198e4c4.png" />
+    <None Remove="client-app\dist\img\woman-illustration.ace969f7.svg" />
+    <None Remove="client-app\dist\index.html" />
+    <None Remove="client-app\jsconfig.json" />
+    <None Remove="client-app\package-lock.json" />
+    <None Remove="client-app\package.json" />
+    <None Remove="client-app\postcss.config.js" />
+    <None Remove="client-app\public\favicon.ico" />
+    <None Remove="client-app\public\index.html" />
+    <None Remove="client-app\README.md" />
+    <None Remove="client-app\src\App.vue" />
+    <None Remove="client-app\src\assets\fonts\nunito\Nunito-Black.ttf" />
+    <None Remove="client-app\src\assets\fonts\nunito\Nunito-BlackItalic.ttf" />
+    <None Remove="client-app\src\assets\fonts\nunito\Nunito-Bold.ttf" />
+    <None Remove="client-app\src\assets\fonts\nunito\Nunito-BoldItalic.ttf" />
+    <None Remove="client-app\src\assets\fonts\nunito\Nunito-ExtraBold.ttf" />
+    <None Remove="client-app\src\assets\fonts\nunito\Nunito-ExtraBoldItalic.ttf" />
+    <None Remove="client-app\src\assets\fonts\nunito\Nunito-ExtraLight.ttf" />
+    <None Remove="client-app\src\assets\fonts\nunito\Nunito-ExtraLightItalic.ttf" />
+    <None Remove="client-app\src\assets\fonts\nunito\Nunito-Italic.ttf" />
+    <None Remove="client-app\src\assets\fonts\nunito\Nunito-Light.ttf" />
+    <None Remove="client-app\src\assets\fonts\nunito\Nunito-LightItalic.ttf" />
+    <None Remove="client-app\src\assets\fonts\nunito\Nunito-Medium.ttf" />
+    <None Remove="client-app\src\assets\fonts\nunito\Nunito-MediumItalic.ttf" />
+    <None Remove="client-app\src\assets\fonts\nunito\Nunito-Regular.ttf" />
+    <None Remove="client-app\src\assets\fonts\nunito\Nunito-SemiBold.ttf" />
+    <None Remove="client-app\src\assets\fonts\nunito\Nunito-SemiBoldItalic.ttf" />
+    <None Remove="client-app\src\assets\fonts\roboto\LICENSE.txt" />
+    <None Remove="client-app\src\assets\fonts\roboto\Roboto-Black.ttf" />
+    <None Remove="client-app\src\assets\fonts\roboto\Roboto-BlackItalic.ttf" />
+    <None Remove="client-app\src\assets\fonts\roboto\Roboto-Bold.ttf" />
+    <None Remove="client-app\src\assets\fonts\roboto\Roboto-BoldItalic.ttf" />
+    <None Remove="client-app\src\assets\fonts\roboto\Roboto-Italic.ttf" />
+    <None Remove="client-app\src\assets\fonts\roboto\Roboto-Light.ttf" />
+    <None Remove="client-app\src\assets\fonts\roboto\Roboto-LightItalic.ttf" />
+    <None Remove="client-app\src\assets\fonts\roboto\Roboto-Medium.ttf" />
+    <None Remove="client-app\src\assets\fonts\roboto\Roboto-MediumItalic.ttf" />
+    <None Remove="client-app\src\assets\fonts\roboto\Roboto-Regular.ttf" />
+    <None Remove="client-app\src\assets\fonts\roboto\Roboto-Thin.ttf" />
+    <None Remove="client-app\src\assets\fonts\roboto\Roboto-ThinItalic.ttf" />
+    <None Remove="client-app\src\assets\images\bg-login-page-dark.svg" />
+    <None Remove="client-app\src\assets\images\bg-login-page.svg" />
+    <None Remove="client-app\src\assets\images\error-illustration.svg" />
+    <None Remove="client-app\src\assets\images\food-beverage-1.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-10.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-11.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-12.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-13.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-14.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-15.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-16.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-17.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-18.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-19.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-2.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-3.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-4.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-5.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-6.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-7.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-8.jpg" />
+    <None Remove="client-app\src\assets\images\food-beverage-9.jpg" />
+    <None Remove="client-app\src\assets\images\header-background.png" />
+    <None Remove="client-app\src\assets\images\hikarusa-image-grid-1.jpeg" />
+    <None Remove="client-app\src\assets\images\hikarusa-image-grid-2.jpeg" />
+    <None Remove="client-app\src\assets\images\hikarusa-image-grid-3.jpeg" />
+    <None Remove="client-app\src\assets\images\hikarusa-image-grid-4.jpeg" />
+    <None Remove="client-app\src\assets\images\hikarusa-image-grid-5.jpeg" />
+    <None Remove="client-app\src\assets\images\illustration.svg" />
+    <None Remove="client-app\src\assets\images\logo.svg" />
+    <None Remove="client-app\src\assets\images\map-marker-region.png" />
+    <None Remove="client-app\src\assets\images\map-marker.png" />
+    <None Remove="client-app\src\assets\images\out-of-stock.png" />
+    <None Remove="client-app\src\assets\images\phone-illustration.svg" />
+    <None Remove="client-app\src\assets\images\pillow-product-image-2.jpeg" />
+    <None Remove="client-app\src\assets\images\pillow-product-image-3.jpeg" />
+    <None Remove="client-app\src\assets\images\pillow-product-image.jpg" />
+    <None Remove="client-app\src\assets\images\pillow-product.png" />
+    <None Remove="client-app\src\assets\images\placeholders\200x200.jpg" />
+    <None Remove="client-app\src\assets\images\placeholders\800x800.jpg" />
+    <None Remove="client-app\src\assets\images\preview-1.jpg" />
+    <None Remove="client-app\src\assets\images\preview-10.jpg" />
+    <None Remove="client-app\src\assets\images\preview-11.jpg" />
+    <None Remove="client-app\src\assets\images\preview-12.jpg" />
+    <None Remove="client-app\src\assets\images\preview-13.jpg" />
+    <None Remove="client-app\src\assets\images\preview-14.jpg" />
+    <None Remove="client-app\src\assets\images\preview-15.jpg" />
+    <None Remove="client-app\src\assets\images\preview-16.jpg" />
+    <None Remove="client-app\src\assets\images\preview-17.jpg" />
+    <None Remove="client-app\src\assets\images\preview-18.jpg" />
+    <None Remove="client-app\src\assets\images\preview-19.jpg" />
+    <None Remove="client-app\src\assets\images\preview-2.jpg" />
+    <None Remove="client-app\src\assets\images\preview-3.jpg" />
+    <None Remove="client-app\src\assets\images\preview-4.jpg" />
+    <None Remove="client-app\src\assets\images\preview-5.jpg" />
+    <None Remove="client-app\src\assets\images\preview-6.jpg" />
+    <None Remove="client-app\src\assets\images\preview-7.jpg" />
+    <None Remove="client-app\src\assets\images\preview-8.jpg" />
+    <None Remove="client-app\src\assets\images\preview-9.jpg" />
+    <None Remove="client-app\src\assets\images\profile-1.jpg" />
+    <None Remove="client-app\src\assets\images\profile-10.jpg" />
+    <None Remove="client-app\src\assets\images\profile-11.jpg" />
+    <None Remove="client-app\src\assets\images\profile-12.jpg" />
+    <None Remove="client-app\src\assets\images\profile-13.jpg" />
+    <None Remove="client-app\src\assets\images\profile-14.jpg" />
+    <None Remove="client-app\src\assets\images\profile-15.jpg" />
+    <None Remove="client-app\src\assets\images\profile-16.jpg" />
+    <None Remove="client-app\src\assets\images\profile-17.jpg" />
+    <None Remove="client-app\src\assets\images\profile-18.jpg" />
+    <None Remove="client-app\src\assets\images\profile-19.jpg" />
+    <None Remove="client-app\src\assets\images\profile-2.jpg" />
+    <None Remove="client-app\src\assets\images\profile-3.jpg" />
+    <None Remove="client-app\src\assets\images\profile-4.jpg" />
+    <None Remove="client-app\src\assets\images\profile-5.jpg" />
+    <None Remove="client-app\src\assets\images\profile-6.jpg" />
+    <None Remove="client-app\src\assets\images\profile-7.jpg" />
+    <None Remove="client-app\src\assets\images\profile-8.jpg" />
+    <None Remove="client-app\src\assets\images\profile-9.jpg" />
+    <None Remove="client-app\src\assets\images\sale-label.png" />
+    <None Remove="client-app\src\assets\images\We-Accept.png" />
+    <None Remove="client-app\src\assets\images\woman-illustration.svg" />
+    <None Remove="client-app\src\assets\json\location.json" />
+    <None Remove="client-app\src\assets\sass.customer\abstracts\_function.scss" />
+    <None Remove="client-app\src\assets\sass.customer\abstracts\_mixins.scss" />
+    <None Remove="client-app\src\assets\sass.customer\abstracts\_variable.scss" />
+    <None Remove="client-app\src\assets\sass.customer\app.scss" />
+    <None Remove="client-app\src\assets\sass.customer\base\_animations.scss" />
+    <None Remove="client-app\src\assets\sass.customer\base\_base.scss" />
+    <None Remove="client-app\src\assets\sass.customer\base\_typography.scss" />
+    <None Remove="client-app\src\assets\sass.customer\base\_utilities.scss" />
+    <None Remove="client-app\src\assets\sass.customer\components\_iconText.scss" />
+    <None Remove="client-app\src\assets\sass.customer\layouts\_footer.scss" />
+    <None Remove="client-app\src\assets\sass.customer\layouts\_global.scss" />
+    <None Remove="client-app\src\assets\sass.customer\layouts\_header.scss" />
+    <None Remove="client-app\src\assets\sass.customer\pages\_contactUs.scss" />
+    <None Remove="client-app\src\assets\sass.customer\pages\_contentTemplate.scss" />
+    <None Remove="client-app\src\assets\sass.customer\pages\_faq.scss" />
+    <None Remove="client-app\src\assets\sass.customer\pages\_homePage.scss" />
+    <None Remove="client-app\src\assets\sass.customer\pages\_registerReseller.scss" />
+    <None Remove="client-app\src\assets\sass.customer\pages\_resellerList.scss" />
+    <None Remove="client-app\src\assets\sass.customer\vendors\_bootstrap.scss" />
+    <None Remove="client-app\src\assets\sass\app.scss" />
+    <None Remove="client-app\src\assets\sass\components\_ads-box.scss" />
+    <None Remove="client-app\src\assets\sass\components\_blog.scss" />
+    <None Remove="client-app\src\assets\sass\components\_boxed-tabs.scss" />
+    <None Remove="client-app\src\assets\sass\components\_breadcrumb.scss" />
+    <None Remove="client-app\src\assets\sass\components\_chat-dropdown.scss" />
+    <None Remove="client-app\src\assets\sass\components\_chat.scss" />
+    <None Remove="client-app\src\assets\sass\components\_ckeditor.scss" />
+    <None Remove="client-app\src\assets\sass\components\_content.scss" />
+    <None Remove="client-app\src\assets\sass\components\_dark-mode-switcher.scss" />
+    <None Remove="client-app\src\assets\sass\components\_dropzone.scss" />
+    <None Remove="client-app\src\assets\sass\components\_error-page.scss" />
+    <None Remove="client-app\src\assets\sass\components\_feather-icon.scss" />
+    <None Remove="client-app\src\assets\sass\components\_full-calendar.scss" />
+    <None Remove="client-app\src\assets\sass\components\_global.scss" />
+    <None Remove="client-app\src\assets\sass\components\_hljs.scss" />
+    <None Remove="client-app\src\assets\sass\components\_inbox-filter.scss" />
+    <None Remove="client-app\src\assets\sass\components\_inbox.scss" />
+    <None Remove="client-app\src\assets\sass\components\_litepicker.scss" />
+    <None Remove="client-app\src\assets\sass\components\_login.scss" />
+    <None Remove="client-app\src\assets\sass\components\_main.scss" />
+    <None Remove="client-app\src\assets\sass\components\_mobile-menu.scss" />
+    <None Remove="client-app\src\assets\sass\components\_news.scss" />
+    <None Remove="client-app\src\assets\sass\components\_notification-content.scss" />
+    <None Remove="client-app\src\assets\sass\components\_notification.scss" />
+    <None Remove="client-app\src\assets\sass\components\_pos-dropdown.scss" />
+    <None Remove="client-app\src\assets\sass\components\_pos.scss" />
+    <None Remove="client-app\src\assets\sass\components\_post.scss" />
+    <None Remove="client-app\src\assets\sass\components\_pricing-tabs.scss" />
+    <None Remove="client-app\src\assets\sass\components\_pristine.scss" />
+    <None Remove="client-app\src\assets\sass\components\_report-box-2.scss" />
+    <None Remove="client-app\src\assets\sass\components\_report-box-3.scss" />
+    <None Remove="client-app\src\assets\sass\components\_report-box-4.scss" />
+    <None Remove="client-app\src\assets\sass\components\_report-box.scss" />
+    <None Remove="client-app\src\assets\sass\components\_report-chart.scss" />
+    <None Remove="client-app\src\assets\sass\components\_report-maps.scss" />
+    <None Remove="client-app\src\assets\sass\components\_report-timeline.scss" />
+    <None Remove="client-app\src\assets\sass\components\_search-result.scss" />
+    <None Remove="client-app\src\assets\sass\components\_search.scss" />
+    <None Remove="client-app\src\assets\sass\components\_side-nav.scss" />
+    <None Remove="client-app\src\assets\sass\components\_source-preview.scss" />
+    <None Remove="client-app\src\assets\sass\components\_table-report.scss" />
+    <None Remove="client-app\src\assets\sass\components\_tabulator.scss" />
+    <None Remove="client-app\src\assets\sass\components\_tiny-slider.scss" />
+    <None Remove="client-app\src\assets\sass\components\_tippy.scss" />
+    <None Remove="client-app\src\assets\sass\components\_toastify-content.scss" />
+    <None Remove="client-app\src\assets\sass\components\_toastify.scss" />
+    <None Remove="client-app\src\assets\sass\components\_top-bar-boxed.scss" />
+    <None Remove="client-app\src\assets\sass\components\_top-bar.scss" />
+    <None Remove="client-app\src\assets\sass\components\_top-nav.scss" />
+    <None Remove="client-app\src\assets\sass\components\_wizard.scss" />
+    <None Remove="client-app\src\assets\sass\components\_zoom-vanilla.scss" />
+    <None Remove="client-app\src\assets\sass\fonts\_roboto.scss" />
+    <None Remove="client-app\src\assets\sass\_tailwind.scss" />
+    <None Remove="client-app\src\components\dark-mode-switcher\Main.vue" />
+    <None Remove="client-app\src\components\donut-chart\Main.vue" />
+    <None Remove="client-app\src\components\horizontal-bar-chart\Main.vue" />
+    <None Remove="client-app\src\components\line-chart\Main.vue" />
+    <None Remove="client-app\src\components\mobile-menu\index.js" />
+    <None Remove="client-app\src\components\mobile-menu\Main.vue" />
+    <None Remove="client-app\src\components\pie-chart\Main.vue" />
+    <None Remove="client-app\src\components\report-bar-chart-1\Main.vue" />
+    <None Remove="client-app\src\components\report-bar-chart\Main.vue" />
+    <None Remove="client-app\src\components\report-donut-chart-1\Main.vue" />
+    <None Remove="client-app\src\components\report-donut-chart-2\Main.vue" />
+    <None Remove="client-app\src\components\report-donut-chart\Main.vue" />
+    <None Remove="client-app\src\components\report-line-chart\Main.vue" />
+    <None Remove="client-app\src\components\report-map\Main.vue" />
+    <None Remove="client-app\src\components\report-pie-chart\Main.vue" />
+    <None Remove="client-app\src\components\side-menu-tooltip\Main.vue" />
+    <None Remove="client-app\src\components\simple-line-chart-1\Main.vue" />
+    <None Remove="client-app\src\components\simple-line-chart-2\Main.vue" />
+    <None Remove="client-app\src\components\simple-line-chart-3\Main.vue" />
+    <None Remove="client-app\src\components\simple-line-chart-4\Main.vue" />
+    <None Remove="client-app\src\components\simple-line-chart\Main.vue" />
+    <None Remove="client-app\src\components\stacked-bar-chart-1\Main.vue" />
+    <None Remove="client-app\src\components\stacked-bar-chart\Main.vue" />
+    <None Remove="client-app\src\components\top-bar\Main.vue" />
+    <None Remove="client-app\src\components\vertical-bar-chart\Main.vue" />
+    <None Remove="client-app\src\core\config\font-awesome.js" />
+    <None Remove="client-app\src\core\config\i18n\customer\commons\card\productItem\en.js" />
+    <None Remove="client-app\src\core\config\i18n\customer\contactus\en.js" />
+    <None Remove="client-app\src\core\config\i18n\customer\contactus\id.js" />
+    <None Remove="client-app\src\core\config\i18n\customer\faq\en.js" />
+    <None Remove="client-app\src\core\config\i18n\customer\faq\id.js" />
+    <None Remove="client-app\src\core\config\i18n\customer\footer\en.js" />
+    <None Remove="client-app\src\core\config\i18n\customer\homepage\en.js" />
+    <None Remove="client-app\src\core\config\i18n\customer\homepage\id.js" />
+    <None Remove="client-app\src\core\config\i18n\en.js" />
+    <None Remove="client-app\src\core\config\layout.config.json" />
+    <None Remove="client-app\src\core\mock\demos.json" />
+    <None Remove="client-app\src\core\mock\mock.service.js" />
+    <None Remove="client-app\src\core\plugins\apexcharts.js" />
+    <None Remove="client-app\src\core\plugins\formvalidation.js" />
+    <None Remove="client-app\src\core\plugins\highlight-js.js" />
+    <None Remove="client-app\src\core\plugins\inline-svg.js" />
+    <None Remove="client-app\src\core\plugins\metronic.js" />
+    <None Remove="client-app\src\core\plugins\moment.js" />
+    <None Remove="client-app\src\core\plugins\perfect-scrollbar.js" />
+    <None Remove="client-app\src\core\plugins\portal-vue.js" />
+    <None Remove="client-app\src\core\plugins\treeselect.js" />
+    <None Remove="client-app\src\core\plugins\vue-bootstrap-typeahead.js" />
+    <None Remove="client-app\src\core\plugins\vue-i18n.js" />
+    <None Remove="client-app\src\core\plugins\vue-underscore.js" />
+    <None Remove="client-app\src\core\plugins\vuetify.js" />
+    <None Remove="client-app\src\core\services\api.service.js" />
+    <None Remove="client-app\src\core\services\htmlclass.service.js" />
+    <None Remove="client-app\src\core\services\i18n.service.js" />
+    <None Remove="client-app\src\core\services\jwt.service.js" />
+    <None Remove="client-app\src\global-components\chart\Main.vue" />
+    <None Remove="client-app\src\global-components\index.js" />
+    <None Remove="client-app\src\global-components\loading-icon\Main.vue" />
+    <None Remove="client-app\src\global-components\tippy-content\Main.vue" />
+    <None Remove="client-app\src\global-components\tippy\Main.vue" />
+    <None Remove="client-app\src\layouts\CustomerParent.vue" />
+    <None Remove="client-app\src\layouts\side-menu\index.js" />
+    <None Remove="client-app\src\layouts\side-menu\Main.vue" />
+    <None Remove="client-app\src\layouts\simple-menu\Main.vue" />
+    <None Remove="client-app\src\layouts\top-menu\index.js" />
+    <None Remove="client-app\src\layouts\top-menu\Main.vue" />
+    <None Remove="client-app\src\libs\copy-code.js" />
+    <None Remove="client-app\src\libs\index.js" />
+    <None Remove="client-app\src\libs\show-code.js" />
+    <None Remove="client-app\src\libs\tw-starter.js" />
+    <None Remove="client-app\src\libs\zoom.js" />
+    <None Remove="client-app\src\main.js" />
+    <None Remove="client-app\src\router\index.js" />
+    <None Remove="client-app\src\router\tinker.js" />
+    <None Remove="client-app\src\store\app.module.js" />
+    <None Remove="client-app\src\store\auth.module.js" />
+    <None Remove="client-app\src\store\index.js" />
+    <None Remove="client-app\src\store\main.js" />
+    <None Remove="client-app\src\store\mutation-types.js" />
+    <None Remove="client-app\src\store\side-menu.js" />
+    <None Remove="client-app\src\store\simple-menu.js" />
+    <None Remove="client-app\src\store\top-menu.js" />
+    <None Remove="client-app\src\utils\helper.js" />
+    <None Remove="client-app\src\utils\index.js" />
+    <None Remove="client-app\src\utils\lodash.js" />
+    <None Remove="client-app\src\views\.customer\components\commons\card\ProductCard.vue" />
+    <None Remove="client-app\src\views\.customer\components\commons\card\ProductItem.vue" />
+    <None Remove="client-app\src\views\.customer\components\Footer.vue" />
+    <None Remove="client-app\src\views\.customer\components\Header.vue" />
+    <None Remove="client-app\src\views\.customer\pages\ContactUs.vue" />
+    <None Remove="client-app\src\views\.customer\pages\ContentTemplate.vue" />
+    <None Remove="client-app\src\views\.customer\pages\FAQ.vue" />
+    <None Remove="client-app\src\views\.customer\pages\Homepage.vue" />
+    <None Remove="client-app\src\views\.customer\pages\RegisterReseller.vue" />
+    <None Remove="client-app\src\views\.customer\pages\ResellerList.vue" />
+    <None Remove="client-app\src\views\invoice-layout-1\Main.vue" />
+    <None Remove="client-app\src\views\login\Main.vue" />
+    <None Remove="client-app\tailwind.config.js" />
+    <None Remove="client-app\vue.config.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SecPortal.Commons\SecPortal.Commons.csproj" />
+    <ProjectReference Include="..\SecPortal.Entities\SecPortal.Entities.csproj" />
+    <ProjectReference Include="..\SecPortal.Services\SecPortal.Services.csproj" />
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build" />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)dist\**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+</Project>

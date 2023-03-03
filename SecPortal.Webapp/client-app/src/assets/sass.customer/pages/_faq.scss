@@ -1,0 +1,47 @@
+.faq-section {
+  padding: 0 1rem 10rem;
+  &__title {
+    margin-bottom: $title-margin-bottom;
+  }
+  &__table {
+    &-row {
+      font-family: $font-family-sans-serif;
+      td {
+        vertical-align: top;
+        padding-bottom: 0.8rem;
+        &:first-child {
+          padding: 0 1rem;
+          div {
+            text-align: center;
+            height: 1.6rem;
+            width: 1.6rem;
+            color: $white;
+            border-radius: 0.8rem;
+            text-align: center;
+            font-weight: 800;
+            padding-top: 3px;
+          }
+        }
+      }
+
+      &--questions {
+        td:first-child div {
+          background: $pink;
+        }
+
+        td:nth-child(2) {
+          font-weight: 800;
+          color: $primary;
+        }
+      }
+      &--answers {
+        td:first-child div {
+          background: $primary-light;
+        }
+        td:nth-child(2) {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

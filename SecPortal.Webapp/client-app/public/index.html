@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="google-site-verification" content="JJL3m9YStNR_lN59o4KxjfdoxOccNRxILRQ0LFr5Df8" />
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>Hikarusa | Baby & Kids Goods</title>
+  <meta name="description" content="Hikarusa Group adalah bagian penting untuk menemani didalam rumahmu, 
+    diciptakan menjadi teman tidur terbaik yang pernah kamu miliki. 
+    Dengan kelembutan dan kenyamanan dari TENCEL™ Modal,terasa sangat lembut disetiap sentuhan, 
+    hypoallergenic yang aman bagi kulit, dingin dan aman tentunya, karena bebas dari bahan kimia berbahaya.
+    TENCEL™ Modal untuk kelembutan dan kebaikan lingkungan, berbahan ramah lingkungan untuk masa depan lebih baik, 
+    rasakan kelembutan terbaik dari alam ditangan anda.">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    [v-cloak]>* {
+      display: none;
+    }
+
+    #preloader {
+      background-color: #FFFFFF;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 999999;
+    }
+
+    #status {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+    }
+
+    #status img {
+      max-height: 15vh;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="preloader">
+    <div id="status">
+      <img src="/logo_Hikarusa_Group.png" alt="Hikarusa Group Logo">
+    </div>
+  </div>
+  <div id="app"></div>
+</body>
+<script>
+  $(document).ready(() => {
+    $("#preloader").fadeOut(1200);
+  })
+</script>
+
+</html>

@@ -1,0 +1,192 @@
+@media (max-width: 991.98px) {
+  /* For mobile phones: */
+
+  .checkout-template {
+    [class*='col-'] {
+      width: 100%;
+    }
+    background-color: $tertiary;
+    padding: 2.5rem 1rem;
+    padding-left: 8%;
+    padding-right: 0%;
+
+    .checkout-template__header {
+      padding-left: 2rem;
+    }
+    .checkout-left__subheader {
+      padding-left: 1.5rem;
+    }
+    .checkout-right__subheader {
+      padding-left: 3.5rem;
+    }
+
+    .checkout-left {
+      .checkout-left__detail {
+        #checkout_firstname {
+          margin-bottom: 1rem;
+        }
+
+        .checkout-left__detail__label {
+          font-weight: bold;
+          font-size: 22;
+          margin-left: 0%;
+        }
+      }
+
+      .checkout-btn-konfirmasi-desktop {
+        display: none !important;
+      }
+    }
+    .checkout-right {
+      .checkout-right__detail {
+        // .checkout-right__detail_img{
+
+        // }
+
+        .checkout-right__detail_product_title {
+          margin-bottom: 0%;
+          color: $primary;
+          font-weight: bolder !important;
+        }
+        .checkout-right__detail_product_amount {
+          margin-bottom: 0%;
+          margin-left: 0%;
+          color: $primary;
+        }
+        .checkout-right__detail_product_variant {
+          margin-bottom: 0%;
+          margin-left: 0%;
+          color: $primary;
+        }
+
+        .product-checkout-price {
+          color: $tussock !important;
+          text-align: left !important;
+        }
+      }
+
+      .checkout-summary {
+        margin-top: 2rem;
+        .product-checkout-calculation {
+          color: $tussock !important;
+          text-align: right;
+          padding-right: 6.5%;
+        }
+
+        hr {
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          border: 0;
+          border-top: 1px solid grey(94, 88, 88, 0.1);
+          height: 0.25rem;
+        }
+      }
+    }
+
+    .btn-checkout-lanjut {
+      background-color: $pink !important;
+      color: white !important;
+      // margin-right: 1rem;
+    }
+
+    .btn-checkout-batal {
+      color: grey !important;
+      margin-top: 1rem;
+      box-shadow: none;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .checkout-template {
+    background-color: $tertiary;
+    padding: 2.5rem 1rem;
+    padding-left: 10%;
+    padding-right: 7.5%;
+
+    .checkout-template__header {
+      padding-left: 2rem;
+    }
+    .checkout-left__subheader {
+      padding-left: 1.5rem;
+    }
+    .checkout-right__subheader {
+      padding-left: 3.5rem;
+    }
+
+    .checkout-left {
+      .checkout-left__detail {
+        .checkout-left__detail__label {
+          font-weight: bold;
+          font-size: 22;
+        }
+      }
+
+      .checkout-btn-konfirmasi-desktop {
+        margin-top: 1.5rem;
+      }
+    }
+    .checkout-right {
+      padding-left: 3rem;
+
+      .checkout-right__detail {
+        // .checkout-right__detail_img{
+
+        // }
+
+        .checkout-right__detail_product_title {
+          margin-bottom: 0%;
+          color: $primary;
+          font-weight: bolder !important;
+        }
+        .checkout-right__detail_product_amount {
+          margin-bottom: 0%;
+          margin-left: 0%;
+          color: $primary;
+        }
+        .checkout-right__detail_product_variant {
+          margin-bottom: 0%;
+          margin-left: 0%;
+          color: $primary;
+        }
+
+        .product-checkout-price {
+          color: $tussock !important;
+        }
+      }
+
+      .checkout-summary {
+        padding-left: 2rem;
+        margin-top: 2rem;
+        .product-checkout-calculation {
+          color: $tussock !important;
+          text-align: right;
+          padding-right: 6.5%;
+        }
+
+        hr {
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          border: 0;
+          border-top: 1px solid grey(94, 88, 88, 0.1);
+          height: 0.25rem;
+        }
+      }
+    }
+
+    .checkout-btn-konfirmasi-mobile {
+      display: none !important;
+    }
+    .btn-checkout-lanjut {
+      background-color: $pink !important;
+      color: white !important;
+      // margin-right: 1rem;
+    }
+
+    .btn-checkout-batal {
+      color: grey !important;
+      margin-left: 1rem;
+      box-shadow: none;
+    }
+  }
+}

@@ -1,0 +1,158 @@
+section#header-menu, section#header-mobile{
+    ul.list-inline-main-menu-desktop{
+        font-weight: 600;
+    }
+    
+    ul.main-menu-list{
+        .list-inline-item:not(:last-child){
+            margin-right: 0px;
+        }
+    
+        li{
+            position: relative;
+    
+            a{
+                font-family: "Nunito", sans-serif;
+                text-decoration: none;
+                display: inline-block;
+                vertical-align: middle;
+                text-decoration: none;
+                padding: 7.5px 15px;
+                white-space: nowrap;
+                transition: all .5s;
+        
+                &::after{
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 100%;
+                    margin: 0 15px;
+                    border-bottom: 2px solid;
+                    border-bottom-color: $white;
+                    transition: right .5s;
+                }
+        
+                &:hover{
+                    color: $white !important;
+        
+                    &::after{
+                        right: 0;
+                    }
+                }
+            }
+        }
+    }
+    
+    ul.secondary-menu-list{
+        .list-inline-item:not(:last-child){
+            margin-right: 0px;
+        }
+    
+        li{
+            position: relative;
+    
+            a{
+                font-family: "Nunito", sans-serif;
+                text-decoration: none;
+                display: inline-block;
+                vertical-align: middle;
+                text-decoration: none;
+                padding: 7.5px 15px;
+                white-space: nowrap;
+                transition: all .5s;
+        
+                &.icon{
+                    font-size: 22px;
+                }
+        
+                &:not(.no-hover)::after{
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 100%;
+                    margin: 0 15px;
+                    border-bottom: 2px solid;
+                    border-bottom-color: $white;
+                    transition: right .5s;
+                }
+        
+                &:hover{
+                    &.icon{
+                        color: $white !important;
+                    }
+        
+                    color: $white !important;
+        
+                    &:not(.no-hover)::after{
+                        right: 0;
+                    }
+                }
+    
+                @media screen and (min-width: 991.98px) and (max-width: 1119px){
+                    padding: 7.5px 10px;
+                }
+            }
+        }
+    }
+    
+    ul.navbar-nav{
+        .nav-item{
+            font-family: "Nunito", sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .nav-subitem{
+            font-family: "Nunito", sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        hr{
+            color: $white;
+        }
+        .fa-angle-down{
+            float: right;
+        }
+    }
+    
+    button.navbar-toggler{
+        background: #ffffff;
+        border-radius: 5px !important;
+        padding: 6px 10px;
+        margin-left: 15px;
+    
+        &:focus{
+            box-shadow: none !important;
+        }
+    }
+
+    background: $tussock;
+
+    .icon.no-hover {
+        color: $white;
+    }
+
+    
+}
+
+section#header-logo{
+    background-image: url('@/assets/images/cream_cloud_copy.png');
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: $bg-header;
+    padding-top: 95px !important;
+    padding-bottom: 45px !important;
+
+    .hikarusa-logo{
+        width: 300px;
+    }
+
+    @include media-breakpoint-down(lg){
+        padding-top: 35px !important;
+        padding-bottom: 25px !important;
+    }
+}

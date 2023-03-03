@@ -1,0 +1,125 @@
+@media (max-width: 991.98px) {
+    /* For mobile phones: */
+
+
+    .detail-akun {
+        [class*="col-"] {
+            width: 100%;
+          }
+        background-color: $tertiary;
+        padding: 2.5rem 1rem;
+
+        .btn-informasi-akun {
+            background-color: $primary;
+        }
+
+        .btn-ganti-password{
+            background-color: $primary;
+        }
+
+
+        .tab-content .tab-pane.active{
+            border-left: 1px;
+            border-left-color: $primary;
+            border-left-style: double;
+
+            border-top: 0.2px;
+            border-top-color: $primary;
+            border-top-style: double;
+
+            border-bottom: 1px;
+            border-bottom-color: $primary;
+            border-bottom-style: double;
+
+            border-right: 1px;
+            border-right-color: $primary;
+            border-right-style: double;
+        }
+
+        .nav-tabs .nav-link{
+            background-color: $primary;
+            color: white;
+        }
+
+        .nav-tabs .nav-link.active{
+            background-color: $tertiary;
+            color: $primary;
+            font-weight: 1000;
+        }
+
+        .nav-link__bottom{
+            border-top-left-radius: 0rem;
+            border-top-right-radius: 0rem;
+        }
+
+        .flex-column__m {
+            flex-direction: column !important;
+        }
+
+        .content-tab{
+            padding-left: 1rem;
+            padding-right: 1rem;
+
+            .col-form-label{
+                margin-left: 0px;
+            }
+        }
+        
+    }
+
+    
+
+
+}
+
+@media (min-width: 992px) {
+    .detail-akun {
+        background-color: $tertiary;
+        padding: 5rem 1rem;
+
+        .btn-informasi-akun {
+            margin-left: 2.5rem;
+            background-color: $primary;
+        }
+
+        .btn-ganti-password{
+            margin-left: 2.5rem;
+            background-color: $primary;
+        }
+
+        .tab-content .tab-pane.active{
+            border-left: 1px;
+            border-left-color: $primary;
+            border-left-style: double;
+
+            border-top: 0.2px;
+            border-top-color: $primary;
+            border-top-style: double;
+
+            border-bottom: 1px;
+            border-bottom-color: $primary;
+            border-bottom-style: double;
+
+            border-right: 1px;
+            border-right-color: $primary;
+            border-right-style: double;
+        }
+
+        .nav-tabs .nav-link{
+            background-color: $primary;
+            color: white;
+        }
+
+        .nav-tabs .nav-link.active{
+            background-color: $tertiary;
+            color: $primary;
+            font-weight: 1000;
+        }
+
+        
+    }
+
+  
+
+}
+

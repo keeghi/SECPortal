@@ -1,0 +1,14 @@
+.contact-us {
+  padding: 10rem 1rem;
+
+  &__title {
+    margin-bottom: $title-margin-bottom;
+  }
+
+  &__paragraph{
+      > p {
+          margin: 2rem 0;
+          color: $secondary-dark;
+      }
+  }
+}

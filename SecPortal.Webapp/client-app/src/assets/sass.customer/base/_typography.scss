@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&family=Playfair+Display:wght@400;600&family=Source+Sans+Pro:wght@200&display=swap');
+h6,
+h5,
+h4,
+h3,
+h2,
+h1,
+label,
+select,
+p {
+  font-family: 'Nunito', sans-serif;
+  color: $primary;
+}
+
+.p-bold {
+  font-weight: 700;
+}
+
+button {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+}
+
+h1 {
+  font-weight: 900;
+}
+
+h2 {
+  font-weight: 800;
+}
+
+label {
+  margin-left: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.restrict-content {
+  max-width: 65em;
+  margin: auto;
+  margin-top: 2em;
+}

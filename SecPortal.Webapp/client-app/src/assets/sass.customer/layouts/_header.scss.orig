@@ -1,0 +1,108 @@
+ul.list-inline-main-menu-desktop{
+    font-weight: 600;
+}
+
+ul.main-menu-list{
+    .list-inline-item:not(:last-child){
+        margin-right: 42px;
+    }
+
+    a{
+        font-family: "Nunito", sans-serif;
+        text-decoration: none;
+        &:hover{
+            color: $primary !important;
+        }
+    }
+
+  @include media-breakpoint-down(lg){
+    .list-inline-item:not(:last-child){
+        margin-right: 20px;
+    }
+  }
+}
+
+ul.secondary-menu-list{
+    .list-inline-item:not(:last-child){
+        margin-right: 20px;
+    }
+
+    li{
+        border-bottom: solid 2px transparent;
+        &:not(.no-hover):hover{
+            border-bottom-color: $primary !important;
+        }
+    }
+
+    a{
+        font-family: "Nunito", sans-serif;
+        text-decoration: none;
+
+        &.icon{
+            font-size: 22px;
+        }
+
+        &:hover{
+            &.icon{
+                color: $primary !important;
+            }
+        }
+    }
+}
+
+ul.navbar-nav{
+    .nav-item{
+        font-family: "Nunito", sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .nav-subitem{
+        font-family: "Nunito", sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    hr{
+        color: $primary;
+    }
+    .fa-angle-down{
+        float: right;
+    }
+}
+
+button.navbar-toggler{
+    background: #ffffff;
+    border-radius: 5px !important;
+    padding: 6px 10px;
+    margin-left: 15px;
+
+    &:focus{
+        box-shadow: none !important;
+    }
+}
+
+section#header-logo{
+    background-image: url('@/assets/images/cloud-header-background.png');
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #FFF6EF;
+    padding-top: 95px !important;
+    padding-bottom: 45px !important;
+
+    .hikarusa-logo{
+        width: 100px;
+    }
+<<<<<<< HEAD
+
+    @include media-breakpoint-down(lg){
+        padding-top: 35px !important;
+        padding-bottom: 25px !important;
+    }
+}
+=======
+}
+
+// #offcanvasNavbar{
+//     background-color: $secondary;
+// }
+>>>>>>> origin/development/bugfixing

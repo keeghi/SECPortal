@@ -1,0 +1,41 @@
+.register-reseller {
+  background-color: $tertiary;
+  &__info {
+    padding: 0 0 3rem;
+    background-color: $white;
+  }
+  &__nodes {
+    padding: 3rem 0 10rem;
+  }
+  &__node {
+    background: $white;
+    border-radius: 1.5rem;
+    box-shadow: 0rem 10px 20px rgba($primary, 0.3);
+
+    width: 80%;
+    height: 350px;
+    margin: auto;
+
+    @media (max-width: 1024px) {
+      /* For mobile phones: */
+      padding: 2rem 1.5rem;
+    }
+
+    @media (min-width: 1024.01px) {
+      padding: 2rem 1.5rem;
+    }
+
+    .icon-text__wrapper svg {
+      margin-right: 0.5rem;
+    }
+  }
+  .reseller-img__wrapper {
+    min-height: 150px;
+  }
+
+  .reseller-img-logo {
+    object-fit: cover;
+    max-height: 150px;
+    padding-bottom: 1rem;
+  }
+}

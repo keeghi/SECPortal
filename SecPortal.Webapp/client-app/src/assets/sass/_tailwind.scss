@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.form-group.error .multiselect {
+  border: 1px solid #f00;
+  background-color: rgba(255, 0, 0, 0.15);
+}
+
+.slideover-modal .modal-body {
+  height: 80vh;
+  overflow-y: auto;
+}

@@ -97,9 +97,9 @@ namespace SecPortal.Webapp
             services.AddSpaStaticFiles(options => options.RootPath = "client-app/dist");
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddTokenProvider<DataProtectorTokenProvider<ApplicationUser>>(TokenOptions.DefaultProvider);
+            //services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.SignIn.RequireConfirmedAccount = true)
+            //    .AddEntityFrameworkStores<ApplicationDbContext>()
+            //    .AddTokenProvider<DataProtectorTokenProvider<ApplicationUser>>(TokenOptions.DefaultProvider);
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -210,7 +210,7 @@ namespace SecPortal.Webapp
             });
 
             services.AddScoped(typeof(IAuthorization), typeof(JwtAuthorization));
-            services.AddScoped(typeof(IUserService), typeof(UserService));
+            //services.AddScoped(typeof(IUserService), typeof(UserService));
 
             services.AddScoped(typeof(ILoggerManager), typeof(FileLoggerManager));
             services.AddScoped(typeof(IMailingService), typeof(MailingService));

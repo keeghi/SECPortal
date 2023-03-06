@@ -4,10 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SecPortal.Entities.Infrastructures
 {
-    public class BaseEntities : IBaseEntities<Guid>
+    public class BaseEntities : IBaseEntities<int>
     {
-        public Guid Id { get; set; }
-        public Guid? CreatedById { get; set; }
+        public int Id { get; set; }
+        public int? CreatedById { get; set; }
         [ForeignKey("CreatedById")]
         public virtual ApplicationUser CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }

@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace SecPortal.UnitTestWithDb
 {
-    public class DbHelper
+    public static class DbHelper
     {
-        public void PrepareCleanDb()
+        public static string PrepareCleanDb()
         {
-            string connectionString = "";
             string newDbName = "SEC_UnitTestWithDB_" + DateTime.Now.ToString("yyyy-MM-dd_HHmm");
+            string connectionString = $"Server=MSI;Database={newDbName};Trusted_Connection=True;MultipleActiveResultSets=true";
+
+            return connectionString;
         }
     }
 }

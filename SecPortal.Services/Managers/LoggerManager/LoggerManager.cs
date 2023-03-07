@@ -18,18 +18,23 @@ namespace SecPortal.Services.Managers.LoggerManager
 
         public void LogException(string caller, Exception ex, object param)
         {
-            try
-            {
-                var log = new ApplicationLog(caller, ex.ToString(), ex.StackTrace, param);
-                var superadmin = _context.Users.Single(x => x.UserName.Equals("admin@superadmin.com", StringComparison.OrdinalIgnoreCase));
-                //_context.Logs.Add(log);
-                _context.SaveChanges(superadmin.Id);
-            }
-            catch (Exception)
-            {
-                // We ask the God of code to not let this block throw exception
-            }
+            throw new NotImplementedException();
         }
+
+        //public void LogException(string caller, Exception ex, object param)
+        //{
+        //    try
+        //    {
+        //        var log = new ApplicationLog(caller, ex.ToString(), ex.StackTrace, param);
+        //        var superadmin = _context.Users.Single(x => x.UserName.Equals("admin@superadmin.com", StringComparison.OrdinalIgnoreCase));
+        //        //_context.Logs.Add(log);
+        //        _context.SaveChanges(superadmin.Id);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        // We ask the God of code to not let this block throw exception
+        //    }
+        //}
     }
 
     public class FileLoggerManager : ILoggerManager

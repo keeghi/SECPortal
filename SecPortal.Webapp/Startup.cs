@@ -6,7 +6,6 @@ using SecPortal.Entities.Data;
 using SecPortal.Entities.Infrastructures;
 using SecPortal.Services.Managers.LoggerManager;
 using SecPortal.Services.Services.MailingServices;
-using SecPortal.Services.Services.UserServices;
 using SecPortal.Webapp.Authorizations;
 using SecPortal.Webapp.Cores;
 using SecPortal.Webapp.MappingProfiles.Core;
@@ -213,7 +212,6 @@ namespace SecPortal.Webapp
             //services.AddScoped(typeof(IUserService), typeof(UserService));
 
             services.AddScoped(typeof(ILoggerManager), typeof(FileLoggerManager));
-            services.AddScoped(typeof(IMailingService), typeof(MailingService));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

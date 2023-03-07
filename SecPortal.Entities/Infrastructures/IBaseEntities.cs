@@ -7,9 +7,9 @@ namespace SecPortal.Entities.Infrastructures
     {
         [Key]
         T Id { get; set; }
-        Guid? CreatedById { get; set; }
+        int? CreatedById { get; set; }
         DateTime CreatedAt { get; set; }
-        Guid? ModifiedById { get; set; }
+        int? ModifiedById { get; set; }
         DateTime? ModifiedAt { get; set; }
         public bool IsActive { get; set; }
 

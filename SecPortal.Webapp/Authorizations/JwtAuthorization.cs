@@ -10,77 +10,82 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using SecPortal.Entities.Entities;
 
 namespace SecPortal.Webapp.Authorizations
 {
     public class JwtAuthorization : IAuthorization
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IConfiguration _configuration;
-        public JwtAuthorization(UserManager<ApplicationUser> userManager, IConfiguration configuration)
-        {
-            _configuration = configuration;
-            _userManager = userManager;
-        }
+        //private readonly UserManager<ApplicationUser> _userManager;
+        //private readonly IConfiguration _configuration;
+        //public JwtAuthorization(UserManager<ApplicationUser> userManager, IConfiguration configuration)
+        //{
+        //    _configuration = configuration;
+        //    _userManager = userManager;
+        //}
 
         public async Task<IBaseResponse> Login(string username, string password)
         {
-            var response = BaseResponse.Factory.Build();
-            var user = await _userManager.FindByNameAsync(username);
-            if (user == null || !user.IsActive)
-            {
-                response.IsSuccess = false;
-                response.Message = "User not found.";
-            }
-            else if (!user.EmailConfirmed)
-            {
-                response.IsSuccess = false;
-                response.Message = "The given email address has not been confirmed. Please verify it by clicking the activation link that has been sent to your email.";
-            }
-            else if (await _userManager.CheckPasswordAsync(user, password))
-            {
-                return CreateToken(user);
-            }
-            else
-            {
-                response.IsSuccess = false;
-                response.Message = "Wrong password.";
-            }
+            throw new NotImplementedException();
 
-            return response;
+            //var response = BaseResponse.Factory.Build();
+            //var user = await _userManager.FindByNameAsync(username);
+            //if (user == null || !user.IsActive)
+            //{
+            //    response.IsSuccess = false;
+            //    response.Message = "User not found.";
+            //}
+            //else if (!user.EmailConfirmed)
+            //{
+            //    response.IsSuccess = false;
+            //    response.Message = "The given email address has not been confirmed. Please verify it by clicking the activation link that has been sent to your email.";
+            //}
+            //else if (await _userManager.CheckPasswordAsync(user, password))
+            //{
+            //    return CreateToken(user);
+            //}
+            //else
+            //{
+            //    response.IsSuccess = false;
+            //    response.Message = "Wrong password.";
+            //}
+
+            //return response;
         }
 
 
-        private JwtResponse CreateToken(ApplicationUser user)
+        private JwtResponse CreateToken(User user)
         {
-            var task = Task.Run(async () => await _userManager.GetRolesAsync(user));
-            var role = task.Result;
+            throw new NotImplementedException();
 
-            List<Claim> claims = new List<Claim>
-            {
-                new Claim("roles", role.FirstOrDefault()),
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.UserName)
-            };
+            //var task = Task.Run(async () => await _userManager.GetRolesAsync(user));
+            //var role = task.Result;
 
-            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8
-                .GetBytes(_configuration.GetSection("AppSettings:Token").Value));
+            //List<Claim> claims = new List<Claim>
+            //{
+            //    new Claim("roles", role.FirstOrDefault()),
+            //    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            //    new Claim(ClaimTypes.Name, user.UserName)
+            //};
 
-            SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+            //SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8
+            //    .GetBytes(_configuration.GetSection("AppSettings:Token").Value));
 
-            var expiry = DateTime.Now.AddHours(8);
-            SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(claims),
-                Expires = expiry,
-                SigningCredentials = creds
-            };
+            //SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
-            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
-            SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
+            //var expiry = DateTime.Now.AddHours(8);
+            //SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
+            //{
+            //    Subject = new ClaimsIdentity(claims),
+            //    Expires = expiry,
+            //    SigningCredentials = creds
+            //};
 
-            var response = new JwtResponse(user.Id.ToString(), role.FirstOrDefault(), tokenHandler.WriteToken(token), expiry, user.UserName, user.Name);
-            return response;
+            //JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+            //SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
+
+            //var response = new JwtResponse(user.Id.ToString(), role.FirstOrDefault(), tokenHandler.WriteToken(token), expiry, user.UserName, user.Name);
+            //return response;
         }
     }
 }

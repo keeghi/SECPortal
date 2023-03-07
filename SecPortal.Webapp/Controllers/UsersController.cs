@@ -24,13 +24,12 @@ namespace SecPortal.Webapp.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly UserManager<ApplicationUser> _userManager;
+        //private readonly UserManager<ApplicationUser> _userManager;
         private readonly IStringLocalizer<Resource> _localizer;
 
-        public UsersController(IMediator mediator, UserManager<ApplicationUser> userManager, IStringLocalizer<Resource> localizer)
+        public UsersController(IMediator mediator, IStringLocalizer<Resource> localizer)
         {
             _mediator = mediator;
-            _userManager = userManager;
             _localizer = localizer;
         }
 

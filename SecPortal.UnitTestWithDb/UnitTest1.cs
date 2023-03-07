@@ -1,3 +1,5 @@
+using SecPortal.Entities.Data;
+
 namespace SecPortal.UnitTestWithDb
 {
     public class UnitTest1
@@ -5,7 +7,19 @@ namespace SecPortal.UnitTestWithDb
         [Fact]
         public void Test1()
         {
+            try
+            {
+                using (var db = new ApplicationDbContext(DbHelper.PrepareCleanDb()))
+                {
+                    db.Database.EnsureCreated();
 
+                    Assert.True(true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Assert.False(true);
+            }
         }
     }
 }

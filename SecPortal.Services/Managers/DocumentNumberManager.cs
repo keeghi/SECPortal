@@ -10,21 +10,23 @@ namespace SecPortal.Services.Managers
     {
         public static string GetNextDocNumber(ICrudService<TEntity> service, IDocumentNumberWithIdentifier entity)
         {
-            var targetDate = entity.CreatedAt.Date.Year;
-            var docList = service.GetAllSorted(x => x.Id != entity.Id && x.CreatedAt.Date.Year == targetDate, $"{nameof(entity.DocumentNo)} desc", 1, 1).ToList();
-            var preposition = "INVOICE";
-            var nextNumber = 1;
+            throw new NotImplementedException();
 
-            if (docList.Any())
-            {
-                var targetDoc = docList.First();
-                if (!string.IsNullOrEmpty(targetDoc.DocumentNo))
-                {
-                    nextNumber = int.Parse(targetDoc.DocumentNo.Split("-")[2]) + 1;
-                }
-            }
+            //var targetDate = entity.CreatedAt.Date.Year;
+            //var docList = service.GetAllSorted(x => x.Id != entity.Id && x.CreatedAt.Date.Year == targetDate, $"{nameof(entity.DocumentNo)} desc", 1, 1).ToList();
+            //var preposition = "INVOICE";
+            //var nextNumber = 1;
 
-            return $"{preposition}-{entity.CreatedAt:yyyy}-{nextNumber.ToString().PadLeft(4, '0')}";
+            //if (docList.Any())
+            //{
+            //    var targetDoc = docList.First();
+            //    if (!string.IsNullOrEmpty(targetDoc.DocumentNo))
+            //    {
+            //        nextNumber = int.Parse(targetDoc.DocumentNo.Split("-")[2]) + 1;
+            //    }
+            //}
+
+            //return $"{preposition}-{entity.CreatedAt:yyyy}-{nextNumber.ToString().PadLeft(4, '0')}";
         }
     }
 

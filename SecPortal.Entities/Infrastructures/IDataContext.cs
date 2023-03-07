@@ -13,9 +13,9 @@ namespace SecPortal.Entities.Infrastructures
         //DbSet<ApplicationUser> Users { get; set; }
         DatabaseFacade Database { get; }
         EntityEntry Entry(object entity);
-        int SaveChanges(Guid? userId);
+        int SaveChanges(int? userId);
         int SaveChangesWithoutTracking();
-        Task SaveChangesAsync(Guid? userId);
+        Task SaveChangesAsync(int? userId);
         
         IOrganizationRepository Organizations { get; }
     }

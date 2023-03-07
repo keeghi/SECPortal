@@ -47,16 +47,28 @@
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
     <Compile Remove="client-app\**" />
+    <Compile Remove="CQRS\Commands\Users\**" />
     <Compile Remove="CQRS\Queries\BusinessPartner\**" />
+    <Compile Remove="CQRS\Queries\Users\**" />
     <Content Remove="$(SpaRoot)**" />
     <Content Remove="client-app\**" />
+    <Content Remove="CQRS\Commands\Users\**" />
     <Content Remove="CQRS\Queries\BusinessPartner\**" />
+    <Content Remove="CQRS\Queries\Users\**" />
     <EmbeddedResource Remove="client-app\**" />
+    <EmbeddedResource Remove="CQRS\Commands\Users\**" />
     <EmbeddedResource Remove="CQRS\Queries\BusinessPartner\**" />
+    <EmbeddedResource Remove="CQRS\Queries\Users\**" />
     <None Remove="$(SpaRoot)**" />
     <None Remove="client-app\**" />
+    <None Remove="CQRS\Commands\Users\**" />
     <None Remove="CQRS\Queries\BusinessPartner\**" />
+    <None Remove="CQRS\Queries\Users\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\UsersController.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -401,6 +413,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="CQRS\Commands\" />
+    <Folder Include="CQRS\Queries\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

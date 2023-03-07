@@ -23,6 +23,16 @@ namespace SecPortal.Entities.Data
             _organizations = organizations;
         }
 
+        public ApplicationDbContext(string connString) : base(GetOptions(connString))
+        {
+
+        }
+
+        private static DbContextOptions GetOptions(string connectionString)
+        {
+            return SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder(), connectionString).Options;
+        }
+
         public IOrganizationRepository Organizations { 
             get {  return _organizations; }
         }
@@ -34,13 +44,13 @@ namespace SecPortal.Entities.Data
             optionsBuilder.UseLazyLoadingProxies();
         }
 
-        public async Task SaveChangesAsync(Guid? userId)
+        public async Task SaveChangesAsync(int? userId)
         {
             TrackChange(userId);
             await base.SaveChangesAsync();
         }
 
-        public int SaveChanges(Guid? userId)
+        public int SaveChanges(int? userId)
         {
             TrackChange(userId);
             return base.SaveChanges();
@@ -51,14 +61,13 @@ namespace SecPortal.Entities.Data
             return base.SaveChanges();
         }
 
-        private void TrackChange(Guid? username)
+        private void TrackChange(int? username)
         {
             var entities = ChangeTracker.Entries().Where(x => x.Entity is BaseEntities && (x.State == EntityState.Added || x.State == EntityState.Modified));
             foreach (var entity in entities)
             {
                 if (entity.State == EntityState.Added)
                 {
-                    ((BaseEntities)entity.Entity).Id = Guid.NewGuid();
                     ((BaseEntities)entity.Entity).CreatedAt = DateTime.UtcNow;
                     if (username != null)
                         ((BaseEntities)entity.Entity).CreatedById = username.Value;

@@ -37,9 +37,11 @@ namespace SecPortal.Webapp.Controllers
         [HttpGet("validate")]
         public ActionResult Validate()
         {
-            var guid = Guid.Parse(_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
-            var targetUser = _context.Users.Single(x => x.Id == guid);
-            return Ok(targetUser);
+            //var guid = Guid.Parse(_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            //var targetUser = _context.Users.Single(x => x.Id == guid);
+            //return Ok(targetUser);
+
+            throw new NotImplementedException();
         }
 
     }

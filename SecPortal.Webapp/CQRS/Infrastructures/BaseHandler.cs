@@ -24,26 +24,26 @@ namespace SecPortal.Webapp.CQRS.Infrastructures
         protected readonly IStringLocalizer<Resource> _localizer;
         protected readonly ILoggerManager _logger;
 
-        protected Guid? UserId
+        protected int? UserId
         {
             get
             {
                 if (_httpContext.HttpContext.User?.FindFirst(ClaimTypes.NameIdentifier) != null)
                 {
-                    return Guid.Parse(_httpContext.HttpContext.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                    return int.Parse(_httpContext.HttpContext.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value);
                 }
                 return null;
             }
         }
-        protected ApplicationUser User
+        protected User User
         {
             get
             {
-                var user = _context.Users.Single(x => x.Id == UserId);
-                if (user != null)
-                {
-                    return user;
-                }
+                //var user = _context.Users.Single(x => x.Id == UserId);
+                //if (user != null)
+                //{
+                //    return user;
+                //}
 
                 throw new CustomException("This user doesn't exists", 404);
             }

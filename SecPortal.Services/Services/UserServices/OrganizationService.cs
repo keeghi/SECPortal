@@ -1,25 +1,26 @@
-﻿using SecPortal.Entities.Entities;
+﻿using AutoMapper;
+using SecPortal.Entities.Entities;
 using SecPortal.Entities.Infrastructures;
-using System;
+using SecPortal.Services.Infrastructures;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SecPortal.Services.Services.UserServices
 {
-    public class OrganizationService
+    public class OrganizationService : AutoMapperBase<Organization>
     {
         private IDataContext _dataContext;
 
-        public OrganizationService(IDataContext context) { 
+        public OrganizationService(IMapper mapper, IDataContext context) : base(mapper)
+        {
             _dataContext = context;
         }
+
 
         public List<Organization> GetOrganizations()
         {
             var result = _dataContext.Organizations.Gets();
             return result.ToList();
         }
-
     }
 }

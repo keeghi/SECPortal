@@ -1,20 +1,22 @@
 using SecPortal.Entities.Data;
+using SecPortal.UnitTestWithDb.Fixtures;
 
 namespace SecPortal.UnitTestWithDb
 {
-    public class UnitTest1
+    public class UnitTest1 : IClassFixture <DatabaseFixture>
     {
+        DatabaseFixture _fixture;
+        public UnitTest1(DatabaseFixture fixture)
+        {
+            _fixture = fixture;
+        }
+
         [Fact]
         public void Test1()
         {
             try
-            {
-                using (var db = new ApplicationDbContext(DbHelper.PrepareCleanDb()))
-                {
-                    db.Database.EnsureCreated();
-
-                    Assert.True(true);
-                }
+            {   
+                Assert.True(true);
             }
             catch (Exception ex)
             {

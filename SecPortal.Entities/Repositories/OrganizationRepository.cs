@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SecPortal.Entities.Data;
 using SecPortal.Entities.Entities;
 using SecPortal.Entities.Helpers;
 using System;
@@ -8,12 +9,12 @@ using System.Text;
 
 namespace SecPortal.Entities.Repositories
 {
-    public class OrganizationRepository
+    public class OrganizationRepository:IOrganizationRepository
     {
         protected IRepositoryFilter _repositoryFilter;
-        private DbContext _dbContext;
+        private ApplicationDbContext _dbContext;
 
-        public OrganizationRepository(DbContext dbContext, IRepositoryFilter repositoryFilter)
+        public OrganizationRepository(ApplicationDbContext dbContext, IRepositoryFilter repositoryFilter)
         {
             _repositoryFilter = repositoryFilter;
         }

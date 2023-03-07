@@ -29,6 +29,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using SecPortal.Services.Services;
+using SecPortal.Services.Services.UserServices;
+using SecPortal.Entities.Repositories;
+using SecPortal.Entities.Helpers;
 
 namespace SecPortal.Webapp
 {
@@ -209,9 +212,13 @@ namespace SecPortal.Webapp
             });
 
             services.AddScoped(typeof(IAuthorization), typeof(JwtAuthorization));
-            //services.AddScoped(typeof(IUserService), typeof(UserService));
-
             services.AddScoped(typeof(ILoggerManager), typeof(FileLoggerManager));
+
+            services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
+            services.AddScoped(typeof(IRepositoryFilter), typeof(RepositoryFilter));
+            services.AddScoped(typeof(IOrganizationRepository), typeof(OrganizationRepository));
+
+            services.AddScoped(typeof(IOrganizationService), typeof(OrganizationService));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

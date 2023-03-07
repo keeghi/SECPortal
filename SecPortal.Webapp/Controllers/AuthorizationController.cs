@@ -15,10 +15,10 @@ namespace SecPortal.Webapp.Controllers
     [ApiController]
     public class AuthorizationController : ControllerBase
     {
-        private readonly IDataContext _context;
+        private readonly IUnitOfWork _context;
         private readonly IAuthorization _authService;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public AuthorizationController(IDataContext context, IHttpContextAccessor httpContextAccessor, IAuthorization authService)
+        public AuthorizationController(IUnitOfWork context, IHttpContextAccessor httpContextAccessor, IAuthorization authService)
         {
             _context = context;
             _authService = authService;

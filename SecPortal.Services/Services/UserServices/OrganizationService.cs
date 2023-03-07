@@ -7,11 +7,11 @@ using System.Linq;
 
 namespace SecPortal.Services.Services.UserServices
 {
-    public class OrganizationService : AutoMapperBase<Organization>
+    public class OrganizationService : AutoMapperBase<Organization>, IOrganizationService
     {
-        private IDataContext _dataContext;
+        private IUnitOfWork _dataContext;
 
-        public OrganizationService(IMapper mapper, IDataContext context) : base(mapper)
+        public OrganizationService(IMapper mapper, IUnitOfWork context) : base(mapper)
         {
             _dataContext = context;
         }
@@ -22,5 +22,10 @@ namespace SecPortal.Services.Services.UserServices
             var result = _dataContext.Organizations.Gets();
             return result.ToList();
         }
+    }
+    
+    public interface IOrganizationService: IAutoMapperService<Organization>
+    {
+        List<Organization> GetOrganizations();
     }
 }

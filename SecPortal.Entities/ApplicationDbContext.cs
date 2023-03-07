@@ -14,13 +14,10 @@ namespace SecPortal.Entities.Data
 {
     public class ApplicationDbContext : DbContext, IDataContext
     {
-        private IOrganizationRepository _organizations;
-
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
-            IOrganizationRepository organizations)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-            _organizations = organizations;
+            
         }
 
         public ApplicationDbContext(string connString) : base(GetOptions(connString))
@@ -31,10 +28,6 @@ namespace SecPortal.Entities.Data
         private static DbContextOptions GetOptions(string connectionString)
         {
             return SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder(), connectionString).Options;
-        }
-
-        public IOrganizationRepository Organizations { 
-            get {  return _organizations; }
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

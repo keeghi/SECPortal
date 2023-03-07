@@ -4,6 +4,7 @@ using SecPortal.Commons.ViewModels.OrganizationViewModels;
 using SecPortal.Entities.Infrastructures;
 using SecPortal.Services.Services.UserServices;
 using SecPortal.Webapp.CQRS.Infrastructures;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,11 +14,11 @@ namespace SecPortal.Webapp.Controllers
     [ApiController]
     public class OrganizationsController : ControllerBase
     {
-        private readonly OrganizationService _organizationService;
+        private readonly IOrganizationService _organizationService;
 
-        public OrganizationsController(IMapper mapper, IDataContext context)
+        public OrganizationsController(IMapper mapper, IUnitOfWork context, IOrganizationService organizationService)
         {
-            _organizationService = new OrganizationService(mapper, context);
+            _organizationService = organizationService;
         }
 
         // GET: api/Organizations
@@ -26,7 +27,8 @@ namespace SecPortal.Webapp.Controllers
         {
             var result = _organizationService.GetOrganizations();
             var organizations = result.ToList();
-            return BaseResponse.Factory.BuildSuccessResponse(organizations.Count, _organizationService.MapModelToViewModel<GetOrganizationResponse>(organizations));
+            return BaseResponse.Factory.BuildSuccessResponse(organizations.Count, 
+                _organizationService.MapModelToViewModel<GetOrganizationResponse>(organizations));
         }
     }
 }

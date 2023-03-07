@@ -36,7 +36,7 @@ namespace SecPortal.UnitTestWithDb.Fixtures
 
         public DatabaseFixture()
         {
-            using (var db = new ApplicationDbContext(ConnectionString))
+            using (var db = new UnitOfWork(ConnectionString))
             {
                 db.Database.EnsureCreated();
             }

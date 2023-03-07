@@ -16,8 +16,6 @@ namespace SecPortal.Entities.Infrastructures
         int SaveChanges(int? userId);
         int SaveChangesWithoutTracking();
         Task SaveChangesAsync(int? userId);
-        
-        IOrganizationRepository Organizations { get; }
     }
 
     public delegate int SaveChangesDelegate(string userId);

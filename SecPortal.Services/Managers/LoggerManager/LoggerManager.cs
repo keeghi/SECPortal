@@ -9,9 +9,9 @@ namespace SecPortal.Services.Managers.LoggerManager
 {
     public class LoggerManager : ILoggerManager
     {
-        private readonly IDataContext _context;
+        private readonly IUnitOfWork _context;
 
-        public LoggerManager(IDataContext context)
+        public LoggerManager(IUnitOfWork context)
         {
             _context = context;
         }
@@ -39,9 +39,9 @@ namespace SecPortal.Services.Managers.LoggerManager
 
     public class FileLoggerManager : ILoggerManager
     {
-        private readonly IDataContext _context;
+        private readonly IUnitOfWork _context;
 
-        public FileLoggerManager(IDataContext context)
+        public FileLoggerManager(IUnitOfWork context)
         {
             _context = context;
         }

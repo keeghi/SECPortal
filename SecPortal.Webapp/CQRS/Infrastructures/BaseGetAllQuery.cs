@@ -68,7 +68,6 @@ namespace SecPortal.Webapp.CQRS.Infrastructures
 
                 foreach (var entity in entities)
                 {
-                    entity.CheckRelation(_context);
                     result.Add(_baseService.MapModelToViewModel<TResponse>(entity));
                 }
 

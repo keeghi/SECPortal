@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecPortal.Services", "SecPo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecPortal.Webapp", "SecPortal.Webapp\SecPortal.Webapp.csproj", "{37C3DC2E-CEEF-4985-BDE8-D63355A080C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecPortal.UnitTestWithDb", "SecPortal.UnitTestWithDb\SecPortal.UnitTestWithDb.csproj", "{F34DCF34-0881-4750-8B7C-6E180878E4C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecPortal.UnitTestWithDb", "SecPortal.UnitTestWithDb\SecPortal.UnitTestWithDb.csproj", "{F34DCF34-0881-4750-8B7C-6E180878E4C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

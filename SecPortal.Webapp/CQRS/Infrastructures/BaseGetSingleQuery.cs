@@ -41,7 +41,6 @@ namespace SecPortal.Webapp.CQRS.Infrastructures
                 }
                 else
                 {
-                    entity.CheckRelation(_context);
                     var map = _baseService.MapModelToViewModel<TMapTo>(entity);
                     return BaseResponse.Factory.BuildSuccessResponse(1, map);
                 }

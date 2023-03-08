@@ -42,7 +42,6 @@ namespace SecPortal.Webapp.CQRS.Infrastructures
                 await _context.SaveChangesAsync(UserId);
 
                 var checkRelation = _baseService.Get(x => x.Id == entity.Id);
-                checkRelation.CheckRelation(_context);
 
                 return BaseResponse.Factory.BuildSuccessResponse(_localizer[DefaultConstant.OK]);
             }

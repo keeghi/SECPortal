@@ -14,5 +14,6 @@ namespace SecPortal.Entities.Infrastructures
         Task RollbackAsync();
 
         IOrganizationRepository Organizations { get; }
+        IUserRepository Users { get; }
     }
 }

@@ -12,12 +12,15 @@ namespace SecPortal.Entities.Infrastructures
     {
         private readonly ApplicationDbContext _dbContext;
         private IOrganizationRepository _organizationRepository;
+        private IUserRepository _userRepository;
 
 
-        public UnitOfWork(ApplicationDbContext dbContext, IOrganizationRepository organizationRepository )
+        public UnitOfWork(ApplicationDbContext dbContext, IOrganizationRepository organizationRepository,
+            IUserRepository userRepository)
         {
             _dbContext = dbContext;
             _organizationRepository = organizationRepository;
+            _userRepository = userRepository;
         }
 
 
@@ -26,6 +29,11 @@ namespace SecPortal.Entities.Infrastructures
             get { return _organizationRepository; }
         }
 
+
+        public IUserRepository Users
+        {
+            get { return _userRepository; }
+        }
 
         public void Commit()
             => _dbContext.SaveChanges();

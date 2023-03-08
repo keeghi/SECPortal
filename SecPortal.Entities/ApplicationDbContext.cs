@@ -98,11 +98,13 @@ namespace SecPortal.Entities.Data
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
-            var ROLE_SUPERADMIN_ID = Guid.Parse(RolesConstant.SuperAdminId);
-            var ROLE_ADMIN_ID = Guid.Parse(RolesConstant.AdminId);
-            var ROLE_SENIOR_ID = Guid.Parse(RolesConstant.SeniorId);
-            var ROLE_SUPERVISOR_ID = Guid.Parse(RolesConstant.SupervisorId);
-            var ROLE_READONLY_ID = Guid.Parse(RolesConstant.ReadOnlyId);
+
+            ////var ROLE_SUPERADMIN_ID = Guid.Parse(RolesConstant.SuperAdminId);
+            ////var ROLE_ADMIN_ID = Guid.Parse(RolesConstant.AdminId);
+            ////var ROLE_SENIOR_ID = Guid.Parse(RolesConstant.SeniorId);
+            ////var ROLE_SUPERVISOR_ID = Guid.Parse(RolesConstant.SupervisorId);
+            ////var ROLE_READONLY_ID = Guid.Parse(RolesConstant.ReadOnlyId);
+            ///
             //builder.Entity<ApplicationRole>().HasData(new ApplicationRole
             //{
             //    Id = ROLE_SUPERADMIN_ID,

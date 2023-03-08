@@ -15,7 +15,7 @@ namespace SecPortal.Webapp.CQRS.Infrastructures
 {
     public class BaseGetDDLHandler<TCommand, TService, TEntity> : BaseHandler<TCommand, TService, TEntity, BaseResponse>, IRequestHandler<TCommand, BaseResponse>
         where TCommand : IRequest<BaseResponse>
-        where TEntity : class, IBaseEntities<Guid>, IKeyValueCandidates
+        where TEntity : class, IBaseEntities<int>, IKeyValueCandidates
         where TService : class, ICrudService<TEntity>
     {
         public BaseGetDDLHandler(TService baseService, IDataContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<Resource> localizer, ILoggerManager logger)
@@ -28,7 +28,7 @@ namespace SecPortal.Webapp.CQRS.Infrastructures
         {
             try
             {
-                var entities = (await _baseService.GetAllAsync(x => x.IsActive)).ToList().Select(x => new KeyValuePair<Guid>(x.Id, x.Name)).ToList();
+                var entities = (await _baseService.GetAllAsync(x => x.IsActive)).ToList().Select(x => new KeyValuePair<int>(x.Id, x.Name)).ToList();
                 return BaseResponse.Factory.BuildSuccessResponse(entities.Count, entities);
             }
             catch (Exception ex)

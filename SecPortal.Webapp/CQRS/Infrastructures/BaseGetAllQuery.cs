@@ -17,7 +17,7 @@ namespace SecPortal.Webapp.CQRS.Infrastructures
 {
     public class BaseGetAllQuery<TCommand, TService, TEntity, TResponse> : BaseHandler<TCommand, TService, TEntity, BaseResponse>
         where TCommand : IRequest<BaseResponse>, IBaseQueries, IFilterQuery
-        where TEntity : class, IBaseEntities<Guid>
+        where TEntity : class, IBaseEntities<int>
         where TService : class, ICrudService<TEntity>
     {
         public BaseGetAllQuery(TService baseService, IDataContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<Resource> localizer, ILoggerManager logger)

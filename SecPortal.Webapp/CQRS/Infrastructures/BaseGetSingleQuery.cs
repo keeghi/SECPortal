@@ -14,7 +14,7 @@ namespace SecPortal.Webapp.CQRS.Infrastructures
 {
     public class BaseGetSingleQuery<TQuery, TService, TEntity, TMapTo>
         where TQuery : IRequest<BaseResponse>, IIdentifier
-        where TEntity : class, IBaseEntities<Guid>
+        where TEntity : class, IBaseEntities<int>
         where TService : class, ICrudService<TEntity>
     {
         protected readonly TService _baseService;

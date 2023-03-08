@@ -7,7 +7,7 @@ namespace SecPortal.Entities.Infrastructures
         public string DocumentNo { get; set; }
     }
 
-    public interface IDocumentNumberWithIdentifier : IDocumentNumber, IBaseEntities<Guid>
+    public interface IDocumentNumberWithIdentifier : IDocumentNumber, IBaseEntities<int>
     {
 
     }

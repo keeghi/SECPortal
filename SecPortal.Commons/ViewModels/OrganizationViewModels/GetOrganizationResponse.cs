@@ -12,6 +12,6 @@ namespace SecPortal.Commons.ViewModels.OrganizationViewModels
         public string OrganizationName { set; get; }
         public string Description { set; get; }
         public string PrimaryContactEmailAddress { set; get; }
-        public List<GetProjectResponse> Projects { set; get; }
+        //public List<GetProjectResponse> Projects { set; get; }
     }
 }

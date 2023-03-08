@@ -8,7 +8,7 @@ namespace SecPortal.Services.Services.MailingServices.MailingViewModels
 {
     public class EmployeeWelcomeEmailTemplate : BaseMailingTemplate
     {
-        public EmployeeWelcomeEmailTemplate(Guid id, string activateToken, string webroot, string domain)
+        public EmployeeWelcomeEmailTemplate(int id, string activateToken, string webroot, string domain)
         {
             Subject = "SecPortal - Activate your Account";
             _webroot = webroot;
@@ -19,7 +19,7 @@ namespace SecPortal.Services.Services.MailingServices.MailingViewModels
 
         private string _webroot;
         private string _domain;
-        private readonly Guid _id;
+        private readonly int _id;
         private string _activateToken;
 
         public override string ToMessageBodyHtml()

@@ -14,7 +14,7 @@ namespace SecPortal.Services.Infrastructures
     /// Create Update Delete Get functions
     /// </summary>
     /// <typeparam name="TModel"></typeparam>
-    public class CrudService<TModel> : AutoMapperBase<TModel>, ICrudService<TModel> where TModel : class, IBaseEntities<Guid>
+    public class CrudService<TModel> : AutoMapperBase<TModel>, ICrudService<TModel> where TModel : class, IBaseEntities<int>
     {
         private readonly DbSet<TModel> _repository;
 
@@ -30,7 +30,7 @@ namespace SecPortal.Services.Infrastructures
             return GetAllAsync(e => true, includes);
         }
 
-        public virtual async Task<TModel> GetAsync(Guid id)
+        public virtual async Task<TModel> GetAsync(int id)
         {
             return await _repository.FindAsync(id);
         }
@@ -46,7 +46,7 @@ namespace SecPortal.Services.Infrastructures
             return Task.FromResult(entities);
         }
 
-        public virtual async Task DeleteAsync(Guid id)
+        public virtual async Task DeleteAsync(int id)
         {
             var entity = await GetAsync(id);
 
@@ -106,7 +106,7 @@ namespace SecPortal.Services.Infrastructures
             return GetQueryable(includes);
         }
 
-        public TModel Get(Guid id)
+        public TModel Get(int id)
         {
             return _repository.Find(id);
         }

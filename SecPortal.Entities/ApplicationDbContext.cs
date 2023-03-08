@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SecPortal.Entities.Repositories;
+using SecPortal.Entities.Entities;
 
 namespace SecPortal.Entities.Data
 {
@@ -75,6 +76,33 @@ namespace SecPortal.Entities.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<Organization>(b =>
+            {
+                // Each User can have many entries in the UserRole join table
+                b.HasMany(e => e.Projects);
+            });
+
+            builder.Entity<User>(b =>
+            {
+                b.HasOne(x => x.Role);
+            });
+
+            builder.Entity<Role>(b =>
+            {
+                b.HasMany(x => x.Users)
+                .WithOne(e => e.Role)
+                .HasForeignKey(ur=>ur.RoleId);
+            });
+
+            //builder.Entity<ApplicationUser>(b =>
+            //{
+            //    // Each User can have many entries in the UserRole join table
+            //    b.HasMany(e => e.UserRoles)
+            //        .WithOne(e => e.User)
+            //        .HasForeignKey(ur => ur.UserId)
+            //        .IsRequired();
+            //});
 
             //builder.Entity<ApplicationUser>(b =>
             //{

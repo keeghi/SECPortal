@@ -13,5 +13,6 @@ namespace SecPortal.Entities.Entities
         [MaxLength(255)]
         public string Description { get; set; }
         public bool CanAccessAllOrganizations { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

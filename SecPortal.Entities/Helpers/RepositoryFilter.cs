@@ -7,6 +7,15 @@ namespace SecPortal.Entities.Helpers
 {
     public class RepositoryFilter : IRepositoryFilter
     {
-        public Role CurrentRole => throw new NotImplementedException();
+        public Role CurrentRole
+        {
+            get
+            {
+                return new Role()
+                {
+                    CanAccessAllOrganizations = true,
+                };
+            }
+        }
     }
 }

@@ -68,10 +68,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\UsersController.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="client-app\.browserslistrc" />
     <None Remove="client-app\.editorconfig" />
     <None Remove="client-app\.eslintrc.js" />

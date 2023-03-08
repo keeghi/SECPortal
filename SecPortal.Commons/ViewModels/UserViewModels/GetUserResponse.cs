@@ -12,5 +12,13 @@ namespace SecPortal.Commons.ViewModels.UserViewModels
         public DateTime CreatedAt { get; set; }
         public string CreatedAtString { get; set; }
         public int RoleId { get; set; }
+
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
     }
 }

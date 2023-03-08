@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SecPortal.Services.Infrastructures
 {
-    public interface IWriteService<TEntity> where TEntity : IBaseEntities<Guid>
+    public interface IWriteService<TEntity> where TEntity : IBaseEntities<int>
     {
         /// <summary>
         /// Add's an item to the repository

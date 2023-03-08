@@ -6,10 +6,10 @@ namespace SecPortal.Services.Infrastructures
     public interface ICrudService<TEntity> : IAutoMapperService<TEntity>,
                                              IReadServiceAsync<TEntity>,
                                              IReadService<TEntity>,
-                                             IReadIdentityServiceAsync<TEntity, Guid>,
-                                             IReadIdentityService<TEntity, Guid>,
+                                             IReadIdentityServiceAsync<TEntity, int>,
+                                             IReadIdentityService<TEntity, int>,
                                              IWriteService<TEntity>,
-                                             IWriteIdentityServiceAsync<Guid> where TEntity : class, IBaseEntities<Guid>
+                                             IWriteIdentityServiceAsync<int> where TEntity : class, IBaseEntities<int>
     {
     }
 }

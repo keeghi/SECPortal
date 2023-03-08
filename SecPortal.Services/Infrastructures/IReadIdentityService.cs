@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace SecPortal.Services.Infrastructures
 {
     public interface IReadIdentityService<TEntity, in TIdentity>
-       where TEntity : IBaseEntities<Guid>
+       where TEntity : IBaseEntities<int>
     {
         /// <summary>
         /// Get the item with this id
@@ -16,7 +16,7 @@ namespace SecPortal.Services.Infrastructures
     }
 
     public interface IReadIdentityServiceAsync<TEntity, in TIdentity>
-        where TEntity : IBaseEntities<Guid>
+        where TEntity : IBaseEntities<int>
     {
         /// <summary>
         /// Get the item with this id using asynchronous processing

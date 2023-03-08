@@ -15,7 +15,7 @@ namespace SecPortal.Webapp.CQRS.Infrastructures
 {
     public class BaseIsShownHandler<TCommand, TService, TEntity, TResponse> : BaseHandler<TCommand, TService, TEntity, BaseResponse>
        where TCommand : IRequest<BaseResponse>, IIdentifier
-       where TEntity : class, IBaseEntities<Guid>, IShownEntities
+       where TEntity : class, IBaseEntities<int>, IShownEntities
        where TService : class, ICrudService<TEntity>
     {
         public BaseIsShownHandler(TService baseService, IDataContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<Resource> localizer, ILoggerManager logger)

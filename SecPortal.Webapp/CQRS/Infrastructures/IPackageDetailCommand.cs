@@ -7,8 +7,8 @@ namespace SecPortal.Webapp.CQRS.Infrastructures
     public interface IPackageDetailCommand<T>
         where T : INullableIdentifier
     {
-        public Guid PackageId { get; set; }
-        public List<Guid> RemovedIds { get; set; }
+        public int PackageId { get; set; }
+        public List<int> RemovedIds { get; set; }
         public List<T> Items { get; set; }
     }
 }

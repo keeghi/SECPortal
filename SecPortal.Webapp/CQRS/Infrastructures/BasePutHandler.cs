@@ -16,7 +16,7 @@ namespace SecPortal.Webapp.CQRS.Infrastructures
 {
     public class BasePutHandler<TCommand, TService, TEntity, TResponse> : BaseHandler<TCommand, TService, TEntity, BaseResponse>
        where TCommand : IRequest<BaseResponse>, IIdentifier
-       where TEntity : class, IBaseEntities<Guid>
+       where TEntity : class, IBaseEntities<int>
        where TService : class, ICrudService<TEntity>
     {
         public BasePutHandler(TService baseService, IDataContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<Resource> localizer, ILoggerManager logger)
@@ -41,7 +41,6 @@ namespace SecPortal.Webapp.CQRS.Infrastructures
                 await _context.SaveChangesAsync(UserId);
 
                 var checkRelation = _baseService.Get(x => x.Id == entity.Id);
-                checkRelation.CheckRelation(_context);
 
                 return BaseResponse.Factory.BuildSuccessResponse(1, _baseService.MapModelToViewModel<TResponse>(entity));
             }

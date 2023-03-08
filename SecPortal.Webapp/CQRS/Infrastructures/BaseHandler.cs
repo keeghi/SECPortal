@@ -62,7 +62,7 @@ namespace SecPortal.Webapp.CQRS.Infrastructures
     public class BaseHandler<TCommand, TService, TEntity, TResponse> : BaseHandler<TCommand, TResponse>
 
           where TCommand : IRequest<TResponse>
-          where TEntity : class, IBaseEntities<Guid>
+          where TEntity : class, IBaseEntities<int>
           where TService : class, ICrudService<TEntity>
     {
         protected readonly TService _baseService;

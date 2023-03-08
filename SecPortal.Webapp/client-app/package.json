@@ -35,7 +35,7 @@
     "js-beautify": "^1.13.5",
     "litepicker": "^2.0.11",
     "mitt": "^3.0.0",
-    "tabulator-tables": "^5.0.10",
+    "tabulator-tables": "^5.4.4",
     "tippy.js": "^6.2.7",
     "toastify-js": "^1.9.3",
     "tom-select": "^1.7.5",

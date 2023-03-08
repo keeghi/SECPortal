@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using SecPortal.Entities.Data;
+using SecPortal.Entities.Infrastructures;
 using System;
 using System.Collections.Generic;
 using System.Linq;

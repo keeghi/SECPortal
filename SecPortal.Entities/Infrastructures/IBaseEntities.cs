@@ -12,7 +12,5 @@ namespace SecPortal.Entities.Infrastructures
         int? ModifiedById { get; set; }
         DateTime? ModifiedAt { get; set; }
         public bool IsActive { get; set; }
-
-        bool CheckRelation(IDataContext context = null);
     }
 }

@@ -6,7 +6,7 @@ using System.Linq;
 namespace SecPortal.Services.Managers
 {
     public static class DocumentNumberManager<TEntity>
-           where TEntity : BaseEntities, IBaseEntities<Guid>, IDocumentNumber
+           where TEntity : BaseEntities, IBaseEntities<int>, IDocumentNumber
     {
         public static string GetNextDocNumber(ICrudService<TEntity> service, IDocumentNumberWithIdentifier entity)
         {

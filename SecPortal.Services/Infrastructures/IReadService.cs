@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SecPortal.Services.Infrastructures
 {
-    public interface IReadService<TEntity> where TEntity : IBaseEntities<Guid>
+    public interface IReadService<TEntity> where TEntity : IBaseEntities<int>
     {
         /// <summary>
         /// Get the first item that meets the criteria
@@ -44,7 +44,7 @@ namespace SecPortal.Services.Infrastructures
         IEnumerable<TEntity> GetAll(Expression<Func<TEntity, object>>[] includes);
     }
 
-    public interface IReadServiceAsync<TEntity> where TEntity : IBaseEntities<Guid>
+    public interface IReadServiceAsync<TEntity> where TEntity : IBaseEntities<int>
     {
         /// <summary>
         /// Get the first item that meets the criteria

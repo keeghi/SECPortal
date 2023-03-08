@@ -13,7 +13,7 @@ namespace SecPortal.Webapp.CQRS.Infrastructures
 {
     public class BaseCreateHandler<TCommand, TService, TEntity, TResponse> : BaseHandler<TCommand, TService, TEntity, TResponse>
         where TCommand : IRequest<TResponse>
-        where TEntity : class, IBaseEntities<Guid>
+        where TEntity : class, IBaseEntities<int>
         where TService : class, ICrudService<TEntity>
     {
         public BaseCreateHandler(TService baseService, IDataContext context, IHttpContextAccessor httpContextAccessor, IStringLocalizer<Resource> localizer, ILoggerManager logger)
@@ -31,7 +31,6 @@ namespace SecPortal.Webapp.CQRS.Infrastructures
                 await _context.SaveChangesAsync(UserId);
 
                 var checkRelation = _baseService.Get(x => x.Id == entity.Id);
-                checkRelation.CheckRelation(_context);
 
                 return _baseService.MapModelToViewModel<TResponse>(entity);
             }

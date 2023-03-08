@@ -14,7 +14,7 @@ namespace SecPortal.Webapp.CQRS.Infrastructures
 {
     public class BaseFakerHandler<TCommand, TService, TEntity, TResponse> : BaseHandler<TCommand, TService, TEntity, TResponse>
          where TCommand : IRequest<TResponse>
-          where TEntity : class, IBaseEntities<Guid>
+          where TEntity : class, IBaseEntities<int>
           where TService : class, ICrudService<TEntity>
         where TResponse : BaseResponse
     {

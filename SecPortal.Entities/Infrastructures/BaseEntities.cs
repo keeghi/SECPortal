@@ -18,16 +18,6 @@ namespace SecPortal.Entities.Infrastructures
         public DateTime? ModifiedAt { get; set; }
         public bool IsActive { get; set; }
 
-        /// <summary>
-        /// CALL THIS WHEN ALL TRANSACTION ARE FINISHED
-        /// </summary>
-        /// <param name="context"></param>
-        /// <returns></returns>
-        public virtual bool CheckRelation(IDataContext context = null)
-        {
-            return true;
-        }
-
         public BaseEntities()
         {
             IsActive = true;

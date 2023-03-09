@@ -10,7 +10,6 @@ namespace SecPortal.Commons.ViewModels.UserViewModels
         public string Email { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreatedAt { get; set; }
-        public string CreatedAtString { get; set; }
         public int RoleId { get; set; }
 
         public string FullName
@@ -20,5 +19,14 @@ namespace SecPortal.Commons.ViewModels.UserViewModels
                 return FirstName + " " + LastName;
             }
         }
+
+        public string CreatedAtString
+        {
+            get
+            {
+                return CreatedAt.ToString("dd-MM-yyyy hh:mm");
+            }
+        }
+
     }
 }

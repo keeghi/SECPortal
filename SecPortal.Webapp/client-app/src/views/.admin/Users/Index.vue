@@ -64,7 +64,7 @@
             title: 'FULL NAME',
             minWidth: 200,
             responsive: 0,
-            field: 'fullname',
+            field: 'fullName',
             vertAlign: 'middle',
             print: false,
             download: false

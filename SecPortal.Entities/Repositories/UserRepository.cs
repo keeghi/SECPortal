@@ -17,6 +17,7 @@ namespace SecPortal.Entities.Repositories
         public UserRepository(ApplicationDbContext dbContext, IRepositoryFilter repositoryFilter)
         {
             _repositoryFilter = repositoryFilter;
+            _dbContext = dbContext;
         }
 
         public IQueryable<User> Gets()

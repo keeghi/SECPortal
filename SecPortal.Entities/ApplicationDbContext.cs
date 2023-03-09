@@ -9,11 +9,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SecPortal.Entities.Repositories;
+using SecPortal.Entities.Entities;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using System.Reflection.Emit;
+using System.Reflection.Metadata;
 
 namespace SecPortal.Entities.Data
 {
     public class ApplicationDbContext : DbContext, IDataContext
     {
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<Organization> Organizations { get; set; }
+        public DbSet<OrganizationAccessFilter> OrganizationAccessFilters { get; set; }
+        public DbSet<ApplicationLog> ApplicationLogs { get; set; }
+        public DbSet<AuditLog> AuditLogs { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -75,6 +87,16 @@ namespace SecPortal.Entities.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<Role>(b =>
+            {
+                b.HasOne(x => x.CreatedBy).WithMany(x => x.CreatedByRoles).HasForeignKey(x => x.CreatedById);
+            });
+
+            builder.Entity<Role>(b =>
+            {
+                b.HasOne(x => x.ModifiedBy).WithMany(x => x.ModifiedByRoles).HasForeignKey(x => x.ModifiedById);
+            });
 
             //builder.Entity<ApplicationUser>(b =>
             //{

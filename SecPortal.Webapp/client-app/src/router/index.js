@@ -25,20 +25,14 @@ const routes = [
         ]
       },
       {
-        path: 'addresses',
-        name: 'baseAdresses',
+        path: 'users',
+        name: 'baseUsers',
         component: BaseParent,
         children: [
           {
             path: '',
-            name: 'adminAddresses',
-            component: () => import('@/views/.admin/Addresses/Index.vue')
-          },
-          {
-            path: 'crud/:id?',
-            name: 'createAddresses',
-            props: true,
-            component: () => import('@/views/.admin/Addresses/Create.vue')
+            name: 'adminUsers',
+            component: () => import('@/views/.admin/Users/Index.vue')
           }
         ]
       }

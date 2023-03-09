@@ -11,6 +11,7 @@ module.exports = {
     eqeqeq: 'off',
     'no-new': 'off',
     'no-unused-expressions': 'off',
+    'no-unused-vars': 'off',
     'space-before-function-paren': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'

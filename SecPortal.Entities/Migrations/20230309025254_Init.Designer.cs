@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SecPortal.Entities.Data;
 
 namespace SecPortal.Entities.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230309025254_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -227,6 +229,7 @@ namespace SecPortal.Entities.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("CreatedById")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -381,7 +384,9 @@ namespace SecPortal.Entities.Migrations
                 {
                     b.HasOne("SecPortal.Entities.Entities.User", "CreatedBy")
                         .WithMany("CreatedByRoles")
-                        .HasForeignKey("CreatedById");
+                        .HasForeignKey("CreatedById")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SecPortal.Entities.Entities.User", "ModifiedBy")
                         .WithMany("ModifiedByRoles")

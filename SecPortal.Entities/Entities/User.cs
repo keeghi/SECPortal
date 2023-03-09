@@ -21,5 +21,8 @@ namespace SecPortal.Entities.Entities
         [ForeignKey("Role")]
         public int RoleId { get; set; }
         public virtual Role Role { get; set; }
+
+        public virtual ICollection<Role> CreatedByRoles { get; set; }
+        public virtual ICollection<Role> ModifiedByRoles { get; set; }
     }
 }

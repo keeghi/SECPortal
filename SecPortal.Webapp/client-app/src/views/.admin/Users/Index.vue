@@ -88,31 +88,13 @@
             download: false
           },
           {
-            title: '',
-            width: 175,
+            title: 'ORGANIZATION NAME',
+            minWidth: 200,
             responsive: 0,
-            hozAlign: 'center',
+            field: 'organizationName',
             vertAlign: 'middle',
             print: false,
-            download: false,
-            headerSort: false,
-            formatter(cell) {
-              const a = cash(`<div class="flex lg:justify-center items-center">
-                  <a class="flex items-center text-theme-20" href="javascript:;">
-                    <i data-feather="key" class="w-4 h-4 mr-1"></i> Change Password
-                  </a>
-                </div>`)
-              cash(a).on('click', function () {
-                _this.ChangeShownState({
-                  isShown: true,
-                  title: 'Change Password',
-                  component: 'changeAdminPasswordForm',
-                  id: cell.getRow().getData().id
-                })
-              })
-  
-              return a[0]
-            }
+            download: false
           },
           // For print format
           {
@@ -135,7 +117,14 @@
             visible: false,
             print: true,
             download: true
-          }
+          },
+          {
+            title: 'ORGANIZATION NAME',
+            field: 'organizationName',
+            visible: false,
+            print: true,
+            download: true
+          },
         ]
       }
     },

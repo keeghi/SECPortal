@@ -22,7 +22,13 @@ namespace SecPortal.Entities.Entities
         public int RoleId { get; set; }
         public virtual Role Role { get; set; }
 
+        [ForeignKey("Organization")]
+        public int? OrganizationId { get; set; }
+        public virtual Organization Organization { get; set; }
+
         public virtual ICollection<Role> CreatedByRoles { get; set; }
         public virtual ICollection<Role> ModifiedByRoles { get; set; }
+        public virtual ICollection<Organization> CreatedByOrganizations { get; set; }
+        public virtual ICollection<Organization> ModifiedByOrganizations { get; set; }
     }
 }

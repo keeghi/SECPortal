@@ -98,6 +98,16 @@ namespace SecPortal.Entities.Data
                 b.HasOne(x => x.ModifiedBy).WithMany(x => x.ModifiedByRoles).HasForeignKey(x => x.ModifiedById);
             });
 
+            builder.Entity<Organization>(b =>
+            {
+                b.HasOne(x => x.CreatedBy).WithMany(x => x.CreatedByOrganizations).HasForeignKey(x => x.CreatedById);
+            });
+
+            builder.Entity<Organization>(b =>
+            {
+                b.HasOne(x => x.ModifiedBy).WithMany(x => x.ModifiedByOrganizations).HasForeignKey(x => x.ModifiedById);
+            });
+
             //builder.Entity<ApplicationUser>(b =>
             //{
             //    // Each User can have many entries in the UserRole join table

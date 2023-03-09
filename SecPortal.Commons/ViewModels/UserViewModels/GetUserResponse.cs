@@ -11,22 +11,13 @@ namespace SecPortal.Commons.ViewModels.UserViewModels
         public bool IsActive { get; set; }
         public DateTime CreatedAt { get; set; }
         public int RoleId { get; set; }
+        public string RoleName { get; set; }
+        public int? OrganizationId { get; set; }
+        public string OrganizationName { get; set; }
 
-        public string FullName
-        {
-            get
-            {
-                return FirstName + " " + LastName;
-            }
-        }
+        public string FullName { get; set; }
 
-        public string CreatedAtString
-        {
-            get
-            {
-                return CreatedAt.ToString("dd-MM-yyyy hh:mm");
-            }
-        }
+        public string CreatedAtString { get; set; }
 
     }
 }

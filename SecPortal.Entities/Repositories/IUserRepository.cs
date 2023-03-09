@@ -9,5 +9,7 @@ namespace SecPortal.Entities.Repositories
     public interface IUserRepository
     {
         IQueryable<User> Gets();
+        User GetById(int id);
+        User Create(User user);
     }
 }

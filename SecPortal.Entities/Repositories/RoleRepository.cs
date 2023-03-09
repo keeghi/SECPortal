@@ -9,33 +9,25 @@ using System.Text;
 
 namespace SecPortal.Entities.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class RoleRepository : IRoleRepository
     {
         protected IRepositoryFilter _repositoryFilter;
         private ApplicationDbContext _dbContext;
 
-        public UserRepository(ApplicationDbContext dbContext, IRepositoryFilter repositoryFilter)
+        public RoleRepository(ApplicationDbContext dbContext, IRepositoryFilter repositoryFilter)
         {
             _repositoryFilter = repositoryFilter;
             _dbContext = dbContext;
         }
 
-        public IQueryable<User> Gets()
+        public IQueryable<Role> Gets()
         {
-            IQueryable<User> result = _dbContext.Set<User>().AsQueryable();
+            IQueryable<Role> result = _dbContext.Set<Role>().AsQueryable();
 
             return result;
         }
 
-        public User Create(User user)
-        {
-            var result = _dbContext.Users.Add(user).Entity;
-            _dbContext.SaveChanges();
-
-            return result;
-        }
-
-        public User GetById(int id)
+        public Role GetById(int id)
         {
             var result = Gets().Where(x => x.Id == id).SingleOrDefault();
             return result;

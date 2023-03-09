@@ -9,6 +9,7 @@ module.exports = {
   },
   rules: {
     eqeqeq: 'off',
+    'indent': 'off',
     'no-new': 'off',
     'no-unused-expressions': 'off',
     'no-unused-vars': 'off',

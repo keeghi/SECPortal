@@ -6,9 +6,9 @@ using System.Text;
 
 namespace SecPortal.Entities.Repositories
 {
-    public interface IOrganizationRepository
+    public interface IRoleRepository
     {
-        IQueryable<Organization> Gets();
-        Organization GetById(int id);
+        IQueryable<Role> Gets();
+        Role GetById(int id);
     }
 }

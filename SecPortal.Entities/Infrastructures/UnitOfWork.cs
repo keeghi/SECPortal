@@ -13,14 +13,16 @@ namespace SecPortal.Entities.Infrastructures
         private readonly ApplicationDbContext _dbContext;
         private IOrganizationRepository _organizationRepository;
         private IUserRepository _userRepository;
+        private IRoleRepository _roleRepository;
 
 
         public UnitOfWork(ApplicationDbContext dbContext, IOrganizationRepository organizationRepository,
-            IUserRepository userRepository)
+            IUserRepository userRepository, IRoleRepository roleRepository)
         {
             _dbContext = dbContext;
             _organizationRepository = organizationRepository;
             _userRepository = userRepository;
+            _roleRepository = roleRepository;
         }
 
 
@@ -33,6 +35,11 @@ namespace SecPortal.Entities.Infrastructures
         public IUserRepository Users
         {
             get { return _userRepository; }
+        }
+
+        public IRoleRepository Roles
+        {
+            get { return _roleRepository; }
         }
 
         public void Commit()

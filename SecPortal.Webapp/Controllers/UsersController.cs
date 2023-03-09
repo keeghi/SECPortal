@@ -4,6 +4,7 @@ using SecPortal.Commons.ViewModels.UserViewModels;
 using SecPortal.Entities.Infrastructures;
 using SecPortal.Services.Services.UserServices;
 using SecPortal.Webapp.CQRS.Infrastructures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,6 +30,31 @@ namespace SecPortal.Webapp.Controllers
             var users = result.ToList();
             return BaseResponse.Factory.BuildSuccessResponse(users.Count,
                 _userService.MapModelToViewModel<GetUserResponse>(users));
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<BaseResponse>> CreateUser([FromBody] CreateUserRequest request)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var result = _userService.CreateUser(request);
+                    if (result == null)
+                    {
+                        return BadRequest();
+
+                    }
+
+                    return CreatedAtAction("GetUsers", new { id = result.Id }, _userService.MapModelToViewModel<GetUserResponse>(result));
+                }
+
+                return Ok(BaseResponse.Factory.BuildFailedResponse("Create user failed"));
+            }
+            catch (Exception ex)
+            {
+                return Ok(BaseResponse.Factory.BuildFailedResponse(ex.Message));
+            }
         }
 
         #region reference

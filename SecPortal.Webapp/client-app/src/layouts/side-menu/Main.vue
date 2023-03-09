@@ -206,7 +206,7 @@ export default defineComponent({
     onMounted(async () => {
       const isAuthenticated = store.getters.isAuthenticated
       const currentUser = store.getters.currentUser
-
+/*
       if (!isAuthenticated) {
         Logout()
         router.push({ name: 'adminLogin' })
@@ -222,7 +222,7 @@ export default defineComponent({
           router.push({ name: 'adminLogin' })
         }
       }
-
+*/
       cash('body')
         .removeClass('error-page')
         .removeClass('login')

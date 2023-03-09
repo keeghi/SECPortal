@@ -15,5 +15,6 @@ namespace SecPortal.Entities.Infrastructures
 
         IOrganizationRepository Organizations { get; }
         IUserRepository Users { get; }
+        IRoleRepository Roles { get; }
     }
 }

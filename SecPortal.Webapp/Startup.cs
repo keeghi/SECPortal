@@ -218,9 +218,11 @@ namespace SecPortal.Webapp
             services.AddScoped(typeof(IRepositoryFilter), typeof(RepositoryFilter));
             services.AddScoped(typeof(IOrganizationRepository), typeof(OrganizationRepository));
             services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
+            services.AddScoped(typeof(IRoleRepository), typeof(RoleRepository));
 
             services.AddScoped(typeof(IOrganizationService), typeof(OrganizationService));
             services.AddScoped(typeof(IUserService), typeof(UserService));
+            services.AddScoped(typeof(IRoleService), typeof(RoleService));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

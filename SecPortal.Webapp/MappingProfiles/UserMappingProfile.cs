@@ -13,6 +13,8 @@ namespace SecPortal.Webapp.MappingProfiles
                 .ForMember(x => x.OrganizationName, d => d.MapFrom(dtl => dtl.Organization != null ? dtl.Organization.OrganizationName : string.Empty))
                 .ForMember(x => x.CreatedAtString, d => d.MapFrom(dtl => dtl.CreatedAt.ToString("dd-MM-yyyy hh:mm")))
                 .ForMember(x => x.FullName, d => d.MapFrom(dtl => dtl.FirstName + " " + dtl.LastName));
+
+            CreateMap<CreateUserRequest, User>();
         }
     }
 }

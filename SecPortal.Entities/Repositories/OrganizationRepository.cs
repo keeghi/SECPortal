@@ -11,11 +11,12 @@ namespace SecPortal.Entities.Repositories
 {
     public class OrganizationRepository:IOrganizationRepository
     {
+        private ApplicationDbContext _dbContext; 
         protected IRepositoryFilter _repositoryFilter;
-        private ApplicationDbContext _dbContext;
 
         public OrganizationRepository(ApplicationDbContext dbContext, IRepositoryFilter repositoryFilter)
         {
+            _dbContext = dbContext;
             _repositoryFilter = repositoryFilter;
         }
 

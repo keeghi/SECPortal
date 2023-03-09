@@ -1,7 +1,7 @@
 <template>
   <metainfo>
     <template v-slot:title="{ content }">{{
-      content ? `${content} | Hikarusa` : `Hikarusa`
+      content ? `${content} | SEC` : `SEC`
     }}</template>
   </metainfo>
   <router-view />

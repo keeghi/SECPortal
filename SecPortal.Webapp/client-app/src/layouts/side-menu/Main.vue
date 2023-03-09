@@ -8,7 +8,7 @@
       <nav class="side-nav">
         <a href="" class="intro-x flex items-center pl-5 pt-4 mt-3">
           <img
-            alt="Hikarusa Admin Template"
+            alt="Admin Template"
             class="w-6"
             :src="require(`@/assets/images/logo.svg`)"
           />

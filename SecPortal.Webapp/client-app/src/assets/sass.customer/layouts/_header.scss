@@ -137,22 +137,3 @@ section#header-menu, section#header-mobile{
 
     
 }
-
-section#header-logo{
-    background-image: url('@/assets/images/cream_cloud_copy.png');
-    background-position: top center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: $bg-header;
-    padding-top: 95px !important;
-    padding-bottom: 45px !important;
-
-    .hikarusa-logo{
-        width: 300px;
-    }
-
-    @include media-breakpoint-down(lg){
-        padding-top: 35px !important;
-        padding-bottom: 25px !important;
-    }
-}

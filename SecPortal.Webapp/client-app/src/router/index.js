@@ -24,6 +24,24 @@ const routes = [
           }
         ]
       },
+      // {
+      //   path: 'addresses',
+      //   name: 'baseAdresses',
+      //   component: BaseParent,
+      //   children: [
+      //     {
+      //       path: '',
+      //       name: 'adminAddresses',
+      //       component: () => import('@/views/.admin/Addresses/Index.vue')
+      //     },
+      //     {
+      //       path: 'crud/:id?',
+      //       name: 'createAddresses',
+      //       props: true,
+      //       component: () => import('@/views/.admin/Addresses/Create.vue')
+      //     }
+      //   ]
+      // },
       {
         path: 'users',
         name: 'baseUsers',
@@ -35,7 +53,12 @@ const routes = [
             component: () => import('@/views/.admin/Users/Index.vue')
           }
         ]
-      }
+      },
+      {
+        name: 'organizations',
+        path: 'organizations',
+        component: () => import('@/views/organization/Index.vue')
+      },
     ]
   },
   {

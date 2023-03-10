@@ -11,5 +11,6 @@ namespace SecPortal.Entities.Repositories
         IQueryable<User> Gets();
         User GetById(int id);
         User Create(User user);
+        void Update(User user);
     }
 }

@@ -3,26 +3,41 @@
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
       <h2 class="text-lg font-medium mr-auto">Organizations</h2>
       <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <button class="btn btn-primary shadow-md mr-2" @click="showFormModal()">Add New Organization</button>
+        <button class="btn btn-primary shadow-md mr-2" @click="showFormModal()">
+          Add New Organization
+        </button>
       </div>
     </div>
     <!-- BEGIN: HTML Table Data -->
     <div class="intro-y box p-5 mt-5">
       <div class="overflow-x-auto scrollbar-hidden">
-        <div id="tabulator" ref="tableRef" class="mt-5 table-report table-report--tabulator"></div>
+        <div
+          id="tabulator"
+          ref="tableRef"
+          class="mt-5 table-report table-report--tabulator"
+        ></div>
       </div>
     </div>
     <!-- END: HTML Table Data -->
-    <OrganizationForm :formTitle="formTitle" :model="model" :saveData="saveData">
+    <OrganizationForm
+      :formTitle="formTitle"
+      :model="model"
+      :saveData="saveData"
+    >
     </OrganizationForm>
   </div>
 </template>
 
 <script>
-import Tabulator from 'tabulator-tables';
-import { defineComponent, onMounted } from 'vue';
-import { GetAll, GetData, CreateData, UpdateData } from '@/core/services/entities/organizations.service';
-import OrganizationForm from './Form.vue';
+import { TabulatorFull as Tabulator } from 'tabulator-tables'
+import { defineComponent, ref, onMounted } from 'vue'
+import {
+  GetAll,
+  GetData,
+  CreateData,
+  UpdateData
+} from '@/core/services/entities/organizations.service'
+import OrganizationForm from './Form.vue'
 
 export default defineComponent({
   components: {
@@ -35,19 +50,18 @@ export default defineComponent({
     const tabulator = ref()
     const message = ref('')
     const records = ref([])
-    const totalRows = ref(0);
+    const totalRows = ref(0)
     const formTitle = ref('Form Add New Organization')
 
     const initTabulator = async () => {
-      const response = await GetAll();
+      const response = await GetAll()
 
       if (response.status === 200) {
         if (response.data.isSuccess) {
-          records.value = response.data.data;
-          totalRows.value = response.data.totalRows;
-        }
-        else {
-          alert(response.data.message);
+          records.value = response.data.data
+          totalRows.value = response.data.totalRows
+        } else {
+          alert(response.data.message)
         }
       }
 
@@ -70,49 +84,50 @@ export default defineComponent({
         columns: [
           // For HTML table
           {
-              title: 'Organization Name',
-              minWidth: 200,
-              field: 'name',
-              hozAlign: 'left',
-              vertAlign: 'middle'
+            title: 'Organization Name',
+            minWidth: 200,
+            field: 'name',
+            hozAlign: 'left',
+            vertAlign: 'middle'
           },
           {
-              title: 'Description',
-              minWidth: 400,
-              field: 'description',
-              hozAlign: 'left',
-              vertAlign: 'middle'
+            title: 'Description',
+            minWidth: 400,
+            field: 'description',
+            hozAlign: 'left',
+            vertAlign: 'middle'
           },
           {
-              title: 'Primary Contact Email',
-              minWidth: 150,
-              field: 'primaryContactEmail',
-              hozAlign: 'left',
-              vertAlign: 'middle'
+            title: 'Primary Contact Email',
+            minWidth: 150,
+            field: 'primaryContactEmail',
+            hozAlign: 'left',
+            vertAlign: 'middle'
           },
           {
-              title: 'ACTIONS',
-              minWidth: 200,
-              field: 'actions',
-              responsive: 1,
-              hozAlign: 'center',
-              vertAlign: 'middle',
-              print: false,
-              download: false,
-              formatter(cell) {
-                  const a = cash(`<div class="flex lg:justify-center items-center">
-                      <a class="btn-edit flex items-center mr-3" href="javascript:;" data-id="${cell.getData().id
+            title: 'ACTIONS',
+            minWidth: 200,
+            field: 'actions',
+            responsive: 1,
+            hozAlign: 'center',
+            vertAlign: 'middle',
+            print: false,
+            download: false,
+            formatter(cell) {
+              const a = cash(`<div class="flex lg:justify-center items-center">
+                      <a class="btn-edit flex items-center mr-3" href="javascript:;" data-id="${
+                        cell.getData().id
                       }">
                       <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit
                       </a>
                       </div>`)
-                  cash(a).on('click', function (e) {
-                      if (e.target.className == 'btn-edit flex items-center mr-3') {
-                          showFormModal(cell.getData().id)
-                      }
-                  })
-                  return a[0]
-              }
+              cash(a).on('click', function(e) {
+                if (e.target.className == 'btn-edit flex items-center mr-3') {
+                  showFormModal(cell.getData().id)
+                }
+              })
+              return a[0]
+            }
           }
         ],
         renderComplete() {
@@ -123,15 +138,15 @@ export default defineComponent({
       })
     }
 
-    const showFormModal = async (id) => {
-      await clearForm();
+    const showFormModal = async id => {
+      await clearForm()
 
       if (id > 0) {
         formTitle.value = 'Form Edit Data'
         model.value = await GetData(id)
       }
 
-      cash('#add-edit-modal').modal('show');
+      cash('#add-edit-modal').modal('show')
     }
 
     const clearForm = async () => {
@@ -153,12 +168,12 @@ export default defineComponent({
       }
 
       const isUpdate = model.value.id != ''
-      var formData = new FormData();
-      for (var key in model.value) {
+      const formData = new FormData()
+      for (const key in model.value) {
         formData.append(key, model.value[key])
       }
 
-      let submitResponse;
+      let submitResponse
 
       if (isUpdate) {
         submitResponse = await UpdateData(formData)
@@ -168,9 +183,9 @@ export default defineComponent({
 
       if (submitResponse) {
         try {
-          await initTabulator();
+          await initTabulator()
         } finally {
-          hideFormModal();
+          hideFormModal()
         }
       }
     }
@@ -190,7 +205,7 @@ export default defineComponent({
       records,
       showFormModal,
       hideFormModal,
-      saveData,
+      saveData
     }
   }
 })

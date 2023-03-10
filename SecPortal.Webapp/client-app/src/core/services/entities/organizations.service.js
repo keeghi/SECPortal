@@ -5,18 +5,18 @@ function GetAll(params) {
 }
 
 function GetData(id) {
-  return axios.get(`api/${controllerName}/${id}`).then((response) => {
-    return response.data.data;
+  return axios.get(`api/${controllerName}/${id}`).then(response => {
+    return response.data.data
   })
 }
 
 function CreateData(data) {
   return axios
-    .post(`api/Organizations`, data)
-    .then((response) => {
+    .post('api/Organizations', data)
+    .then(response => {
       if (response.data != null) {
         if (response.data.id != null) {
-          alert('Save Successfully');
+          alert('Save Successfully')
         } else {
           alert(response.data.message)
         }
@@ -24,26 +24,26 @@ function CreateData(data) {
         alert('Oops - Error System')
       }
     })
-    .catch((ex) => {
+    .catch(ex => {
       console.log(ex)
-    });
+    })
 }
 
 function UpdateData(data) {
   return axios
-    .put(`api/Organizations/`, data)
-    .then((response) => {
+    .put('api/Organizations/', data)
+    .then(response => {
       if (response.data.isSuccess) {
-        alert('Save Successfully');
-        return true;
+        alert('Save Successfully')
+        return true
       } else {
-        alert(response.data.message);
-        return false;
+        alert(response.data.message)
+        return false
       }
     })
-    .catch((ex) => {
+    .catch(ex => {
       console.log(ex)
-    });
+    })
 }
 
 export { GetAll, GetData, CreateData, UpdateData }

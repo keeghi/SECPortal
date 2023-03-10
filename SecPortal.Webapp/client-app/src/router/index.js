@@ -58,7 +58,7 @@ const routes = [
         name: 'organizations',
         path: 'organizations',
         component: () => import('@/views/organization/Index.vue')
-      },
+      }
     ]
   },
   {

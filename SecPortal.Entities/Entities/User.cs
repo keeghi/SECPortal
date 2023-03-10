@@ -19,7 +19,7 @@ namespace SecPortal.Entities.Entities
         public string PasswordHash { get; set; }
 
         [ForeignKey("Role")]
-        public int RoleId { get; set; }
+        public int? RoleId { get; set; }
         public virtual Role Role { get; set; }
 
         [ForeignKey("Organization")]

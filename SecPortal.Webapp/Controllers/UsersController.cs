@@ -32,6 +32,47 @@ namespace SecPortal.Webapp.Controllers
                 _userService.MapModelToViewModel<GetUserResponse>(users));
         }
 
+
+        // GET: api/Users/{Id}
+        [HttpGet("{id}")]
+        public async Task<ActionResult<BaseResponse>> GetUser([FromRoute] int id)
+        {
+            var result = _userService.GetUser(id);
+            if (result == null)
+            {
+                return BaseResponse.Factory.BuildFailedResponse("Not found");
+            }
+
+            return BaseResponse.Factory.BuildSuccessResponse(1,
+                _userService.MapModelToViewModel<GetUserResponse>(result));
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<BaseResponse>> UpdateUser([FromBody] UpdateUserRequest request, [FromRoute] int id)
+        {
+            try
+            {
+                if (ModelState.IsValid && id == request.Id)
+                {
+                    var result = _userService.UpdateUser(request);
+                    if (result == null)
+                    {
+                        return BadRequest();
+
+                    }
+
+                    return BaseResponse.Factory.BuildSuccessResponse(1,
+                        _userService.MapModelToViewModel<GetUserResponse>(result));
+                }
+
+                return Ok(BaseResponse.Factory.BuildFailedResponse("Update user failed"));
+            }
+            catch (Exception ex)
+            {
+                return Ok(BaseResponse.Factory.BuildFailedResponse(ex.Message));
+            }
+        }
+
         [HttpPost]
         public async Task<ActionResult<BaseResponse>> CreateUser([FromBody] CreateUserRequest request)
         {

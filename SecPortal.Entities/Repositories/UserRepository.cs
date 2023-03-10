@@ -30,6 +30,7 @@ namespace SecPortal.Entities.Repositories
         public User Create(User user)
         {
             var result = _dbContext.Users.Add(user).Entity;
+            result.CreatedAt = DateTime.UtcNow;
             _dbContext.SaveChanges();
 
             return result;
@@ -39,6 +40,12 @@ namespace SecPortal.Entities.Repositories
         {
             var result = Gets().Where(x => x.Id == id).SingleOrDefault();
             return result;
+        }
+
+        public void Update(User user)
+        {
+            user.ModifiedAt = DateTime.UtcNow;
+            _dbContext.SaveChanges();
         }
     }
 }

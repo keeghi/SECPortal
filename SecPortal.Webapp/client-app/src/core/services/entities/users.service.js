@@ -5,15 +5,15 @@ function Get(id) {
 }
 
 function RegisterAdmin(formModel) {
-  return window.axios.post('api/users/admin', formModel)
+  return window.axios.post('api/users', formModel)
 }
 
 function PutAdmin(id, formModel) {
-  return window.axios.put(`api/users/admin/${id}`, formModel)
+  return window.axios.put(`api/users/${id}`, formModel)
 }
 
 function PutCustomer(id, formModel) {
-  return window.axios.put(`api/users/admin/customer/${id}`, formModel)
+  return window.axios.put(`api/users/customer/${id}`, formModel)
 }
 
 function PutCustomerOwnAccount(id, formModel) {
@@ -25,7 +25,7 @@ function PutCustomerOwnPassword(id, formModel) {
 }
 
 function ChangePasswordAdmin(formModel) {
-  return window.axios.post('api/users/admin/change-password', formModel)
+  return window.axios.post('api/users/change-password', formModel)
 }
 
 function RegisterCustomer(formModel) {

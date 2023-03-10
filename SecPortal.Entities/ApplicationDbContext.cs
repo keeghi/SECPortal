@@ -29,7 +29,7 @@ namespace SecPortal.Entities.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-            
+
         }
 
         public ApplicationDbContext(string connString) : base(GetOptions(connString))
@@ -107,6 +107,7 @@ namespace SecPortal.Entities.Data
             {
                 b.HasOne(x => x.ModifiedBy).WithMany(x => x.ModifiedByOrganizations).HasForeignKey(x => x.ModifiedById);
             });
+
 
             //builder.Entity<ApplicationUser>(b =>
             //{

@@ -18,8 +18,8 @@ const state = () => {
         subMenu: [
           {
             icon: '',
-            pageName: 'adminAddresses',
-            title: 'Addresses'
+            pageName: 'organizations',
+            title: 'Organizations'
           }
         ]
       }

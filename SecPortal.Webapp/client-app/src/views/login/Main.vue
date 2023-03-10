@@ -246,17 +246,20 @@ export default defineComponent({
     },
     async submitForm() {
       this.isReady = false
-      const toast = useToast()
-      const response = await Login(this.authentication)
-      if (response.isSuccess) {
-        this.$router.push({ name: 'adminDashboard' })
-      } else {
-        toast.error(response.message, {
-          timeout: 2000
-        })
-      }
 
-      this.isReady = true
+      setTimeout(() => {
+        this.$router.push({ name: 'adminDashboard' })
+        this.isReady = true
+      }, 1000)
+      // const toast = useToast()
+      // const response = await Login(this.authentication)
+      // if (response.isSuccess) {
+      //   this.$router.push({ name: 'adminDashboard' })
+      // } else {
+      //   toast.error(response.message, {
+      //     timeout: 2000
+      //   })
+      // }
     }
   }
 })

@@ -24,11 +24,26 @@ namespace SecPortal.Services.Services.UserServices
             return result.ToList();
         }
 
+        public User GetUser(int id)
+        {
+            var result = _dataContext.Users.GetById(id);
+            return result;
+        }
+
         public User CreateUser(CreateUserRequest request)
         {
             var userModel = MapViewModelToModel<CreateUserRequest>(request);
             var result = _dataContext.Users.Create(userModel);
             return result;
+        }
+
+        public User UpdateUser(UpdateUserRequest request)
+        {
+            var entity = _dataContext.Users.GetById(request.Id);
+            AssignValue(entity, request);
+            _dataContext.Users.Update(entity);
+
+            return entity;
         }
     }
 
@@ -36,6 +51,10 @@ namespace SecPortal.Services.Services.UserServices
     {
         List<User> GetUsers();
 
+        User GetUser(int id);
+
         User CreateUser(CreateUserRequest request);
+
+        User UpdateUser(UpdateUserRequest request);
     }
 }

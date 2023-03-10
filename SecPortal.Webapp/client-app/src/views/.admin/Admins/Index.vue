@@ -61,10 +61,19 @@ export default {
 
         // For HTML table
         {
-          title: 'FULL NAME',
+          title: 'FIRST NAME',
+          field: 'firstName',
           minWidth: 200,
           responsive: 0,
-          field: 'fullname',
+          vertAlign: 'middle',
+          print: false,
+          download: false
+        },
+        {
+          title: 'LAST NAME',
+          field: 'lastName',
+          minWidth: 200,
+          responsive: 0,
           vertAlign: 'middle',
           print: false,
           download: false
@@ -102,7 +111,7 @@ export default {
                   <i data-feather="key" class="w-4 h-4 mr-1"></i> Change Password
                 </a>
               </div>`)
-            cash(a).on('click', function () {
+            cash(a).on('click', function() {
               _this.ChangeShownState({
                 isShown: true,
                 title: 'Change Password',
@@ -116,8 +125,15 @@ export default {
         },
         // For print format
         {
-          title: 'FULL NAME',
-          field: 'fullname',
+          title: 'FIRST NAME',
+          field: 'firstName',
+          visible: false,
+          print: true,
+          download: true
+        },
+        {
+          title: 'LAST NAME',
+          field: 'lastName',
           visible: false,
           print: true,
           download: true

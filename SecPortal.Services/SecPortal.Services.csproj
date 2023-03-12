@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <AssemblyName>SecPortal.Services</AssemblyName>
+    <RootNamespace>SecPortal.Services</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Services\CustomerOrderServices\**" />
+    <Compile Remove="Services\CustomerServices\**" />
+    <Compile Remove="Services\DeliveryServices\**" />
+    <Compile Remove="Services\DepositHistoryServices\**" />
+    <Compile Remove="Services\EncyclopediaServices\**" />
+    <Compile Remove="Services\FarmerServices\**" />
+    <Compile Remove="Services\PurchaseServices\**" />
+    <Compile Remove="Services\TestimonyServices\**" />
+    <Compile Remove="Services\UomServices\**" />
+    <EmbeddedResource Remove="Services\CustomerOrderServices\**" />
+    <EmbeddedResource Remove="Services\CustomerServices\**" />
+    <EmbeddedResource Remove="Services\DeliveryServices\**" />
+    <EmbeddedResource Remove="Services\DepositHistoryServices\**" />
+    <EmbeddedResource Remove="Services\EncyclopediaServices\**" />
+    <EmbeddedResource Remove="Services\FarmerServices\**" />
+    <EmbeddedResource Remove="Services\PurchaseServices\**" />
+    <EmbeddedResource Remove="Services\TestimonyServices\**" />
+    <EmbeddedResource Remove="Services\UomServices\**" />
+    <None Remove="Services\CustomerOrderServices\**" />
+    <None Remove="Services\CustomerServices\**" />
+    <None Remove="Services\DeliveryServices\**" />
+    <None Remove="Services\DepositHistoryServices\**" />
+    <None Remove="Services\EncyclopediaServices\**" />
+    <None Remove="Services\FarmerServices\**" />
+    <None Remove="Services\PurchaseServices\**" />
+    <None Remove="Services\TestimonyServices\**" />
+    <None Remove="Services\UomServices\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Infrastructures\IMailingTemplate.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="Bogus" Version="30.0.4" />
+    <PackageReference Include="Mailjet.Api" Version="1.2.3" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+    <PackageReference Include="Polly" Version="7.2.3" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SecPortal.Commons\SecPortal.Commons.csproj" />
+    <ProjectReference Include="..\SecPortal.Entities\SecPortal.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
